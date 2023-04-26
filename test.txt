@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset=\"UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWise</title>
+    <style>
+        #header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            background-color: #333;
+            border-bottom: 4px solid #daa520;
+        }
+
+        #header img{
+            height: 100%;
+        }
+
+        #header span{
+            font-size: 24px;
+            color: #FFF;
+        }
+
+        #header span:nth-child(2){
+            color: #daa520;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <span>Sky</span>
+        <img src="path/to/image" alt="icon">
+        <span>Wise</span>
+    </div>
+</body>
+</html>
+
+----------------------------
+
+<input type="text" id="city-input" required />
+
+<script>
+  // Get the input field
+  let inputField = document.getElementById("city-input");
+
+  // Get the current location coordinates
+  navigator.geolocation.getCurrentPosition(success, error);
+  
+  // Success callback function
+  function success(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    
+    // Reverse geocoding to get the city name from latitude and longitude
+    let geocoder = new google.maps.Geocoder();
+    let latLng = new google.maps.LatLng(latitude, longitude);
+    
+    geocoder.geocode({ 'latLng': latLng }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (results[0]) {
+          // Set the input field value to the city name
+          inputField.value = results[0].address_components[3].long_name;
+        }
+      } else {
+        console.log('Geocoder failed due to: ' + status);
+      }
+    });
+  }
+  
+  // Error callback function
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+</script>
+
+
+------------------------------------------
+
+<header>
+  <h1 id="header-text">Sky<span id="header-text-colored">Wise</span><img id="weather-icon" src="path/to/default/icon.png" alt="Icon"></h1>
+</header>
+
+
+---------------------------------------------
+
+// Get a reference to the image element and the weather data fetched from the API
+const weatherIcon = document.getElementById('weather-icon');
+const weatherData = /* ... code to fetch weather data ... */;
+
+// Determine which icon to display based on the weather data
+let iconPath;
+if (weatherData.isRaining) {
+  iconPath = 'path/to/rain/icon.png';
+} else if (weatherData.isSunny) {
+  iconPath = 'path/to/sun/icon.png';
+} else {
+  iconPath = 'path/to/default/icon.png';
+}
+
+// Update the image source with the appropriate icon path
+weatherIcon.src = iconPath;
+
+
+
+

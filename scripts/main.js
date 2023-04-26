@@ -36,3 +36,5 @@ document.querySelector("#weather-form").addEventListener("submit", (e) => {
       weatherResults.innerHTML = "<p>An error occurred</p>";
     });
 });
+
+
