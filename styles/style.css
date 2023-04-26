@@ -1,0 +1,16 @@
+header {
+  background-color: #333;
+  border-bottom: 4px solid goldenrod;
+  color: goldenrod
+}
+
+#branding h1 {
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  font: bold;
+  text-align: center;
+}
+
+.highlight {
+  color: white;
+}
