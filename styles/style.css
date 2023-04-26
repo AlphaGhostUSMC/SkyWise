@@ -1,16 +1,67 @@
 header {
   background-color: #333;
-  border-bottom: 4px solid goldenrod;
-  color: goldenrod
+  border-bottom: 4px solid #daa520;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#branding h1 {
-  font-family: Arial, sans-serif;
-  font-size: 36px;
-  font: bold;
+#header-text {
+  color: #fff;
+  font-size: 48px;
   text-align: center;
+  margin-right: 10px;
 }
 
-.highlight {
-  color: white;
+#header-text-colored {
+  color: #daa520;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+form label,
+form input,
+form button {
+  margin: 10px;
+}
+
+form label {
+  font-size: 14px;
+  flex: 0 0 100%;
+}
+
+form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+#weather-results {
+  margin-top: 20px;
+  font-size: 18px;
 }

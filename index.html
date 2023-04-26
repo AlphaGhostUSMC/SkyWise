@@ -7,17 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkyWise</title>
   <link rel="stylesheet" href="styles/style.css" />
-  <script src="scripts/main.js"></script>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">Sky</span>Wise</h1>
-      </div>
+  <div>
+    <header>
+      <h1 id="header-text">Sky<span id="header-text-colored">Wise</span>&nbsp<img src="assets/images/weather_logo.png"
+          alt="Icon" width="50px" height="50px"></h1>
+    </header>
+  </div>
+  <main>
+    <form id="weather-form">
+      <label for="city-input">Enter a city:</label>
+      <input type="text" id="city-input" required />
+      <button type="submit">Get weather</button>
+    </form>
+    <div id="weather-results">
+      <!-- Weather results will be displayed here -->
     </div>
-  </header>
+  </main>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>
