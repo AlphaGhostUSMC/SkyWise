@@ -25,6 +25,7 @@ document.querySelector("#weather-form").addEventListener("submit", (e) => {
         const main = data.main;
         weatherResults.innerHTML = `
           <p>Temperature: ${main.temp}°C</p>
+          <p>Coverage: ${weather.main}</p>
           <p>Description: ${weather.description}</p>
           <p>Humidity: ${main.humidity}%</p>
           <p>Wind speed: ${data.wind.speed} kph</p>

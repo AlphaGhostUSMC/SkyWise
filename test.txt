@@ -105,5 +105,44 @@ if (weatherData.isRaining) {
 weatherIcon.src = iconPath;
 
 
+-----------------------------------------------
 
+label {
+    position: relative;
+  }
+  label span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(5px, 8px);
+    color: #aaa;
+    pointer-events: none;
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+  }
+  label input:focus + span,
+  label input:not(:placeholder-shown) + span {
+    transform: translate(0, -20px);
+    font-size: 12px;
+    color: #000;
+  }
+  input {
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    font-size: 16px;
+    padding: 5px;
+  }
+  button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
