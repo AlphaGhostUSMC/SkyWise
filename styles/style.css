@@ -7,15 +7,16 @@ header {
 }
 
 #header-div {
-  display: flex;
+  display: inherit;
   align-items: left;
-  /* flex: 1; */
+  flex: 1;
+  padding-left: 50px;
 }
 
 #search-bar {
   display: flex;
   align-items: right;
-  /* flex: 1; */
+  padding-right: 50px;
 }
 
 #header-text {
@@ -78,8 +79,9 @@ form button:hover {
 label {
   position: relative;
   color: #fff;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
 label span {
   position: absolute;
   top: 0;
@@ -89,12 +91,14 @@ label span {
   pointer-events: none;
   transition: transform 0.2s ease-out, color 0.2s ease-out;
 }
-label input:focus + span,
-label input:not(:placeholder-shown) + span {
+
+label input:focus+span,
+label input:not(:placeholder-shown)+span {
   transform: translate(0, -20px);
   font-size: 12px;
   color: #000;
 }
+
 input {
   width: 300px;
   height: 40px;
@@ -103,6 +107,7 @@ input {
   font-size: 16px;
   padding: 5px;
 }
+
 button {
   display: inline-block;
   margin-top: 10px;
@@ -116,17 +121,24 @@ button {
   cursor: pointer;
 }
 
-#city-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+#city-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
   color: #ccc;
 }
-#city-input::-moz-placeholder { /* Firefox 19+ */
+
+#city-input::-moz-placeholder {
+  /* Firefox 19+ */
   color: #ccc;
   opacity: 1;
 }
-#city-input:-ms-input-placeholder { /* IE 10+ */
+
+#city-input:-ms-input-placeholder {
+  /* IE 10+ */
   color: #ccc;
 }
-#city-input:-moz-placeholder { /* Firefox 18- */
+
+#city-input:-moz-placeholder {
+  /* Firefox 18- */
   color: #ccc;
   opacity: 1;
 }
