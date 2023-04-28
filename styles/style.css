@@ -79,7 +79,8 @@ form button:hover {
 label {
   position: relative;
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
 }
 
 label span {
@@ -100,26 +101,36 @@ label input:not(:placeholder-shown)+span {
 }
 
 input {
-  width: 300px;
+  width: 200px;
   height: 40px;
   border: none;
-  border-bottom: 2px solid #aaa;
+  border-radius: 5em;
+  border-bottom: 4px solid #757373;
   font-size: 16px;
-  padding: 5px;
 }
 
 button {
   display: inline-block;
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #444;
-  border: none;
-  border-radius: 5px;
+  background-color: #4e4d4d;
+  border: 2px solid #757373;
+  border-radius: 5em;
   cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
+button:hover {
+  border-color: #daa520;
+}
+
+button:active {
+  background-color: #daa520;
+}
+
 
 #city-input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
