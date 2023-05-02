@@ -146,3 +146,8 @@ label {
     cursor: pointer;
   }
 
+-------------------------------------------
+
+color gradient
+E1B158
+daa520
