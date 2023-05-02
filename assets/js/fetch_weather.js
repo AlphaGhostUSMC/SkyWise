@@ -3,7 +3,7 @@ const cityInput = document.querySelector("#location-search-input");
 const weatherResults = document.querySelector("#weather-result");
 
 // Add a submit event listener to the form
-document.querySelector("#location-search-input").addEventListener("submit", (e) => {
+document.querySelector("#get-weather").addEventListener("submit", (e) => {
   // Prevent the default form submission behavior
   e.preventDefault();
 

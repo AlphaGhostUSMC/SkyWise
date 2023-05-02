@@ -115,3 +115,11 @@
   font-size: 18px;
 }
 
+#get-weather {
+  outline: none;
+}
+
+#get-weather:focus {
+  outline: none;
+}
+
