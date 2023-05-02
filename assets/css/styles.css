@@ -120,6 +120,7 @@
   padding: 40px 35px;
   text-align: center;
   border-bottom: 5px inset #daa520;
+  border-right: 5px outset #daa520;
 }
 
 #get-weather {
