@@ -110,9 +110,16 @@
   color: #daa520;
 }
 
-#weather-result {
-  margin-top: 20px;
-  font-size: 18px;
+#weather-card-main {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #333333, #0f0f0f);
+  color: #ffffff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+  border-bottom: 5px inset #daa520;
 }
 
 #get-weather {
@@ -121,5 +128,10 @@
 
 #get-weather:focus {
   outline: none;
+}
+
+#weather-icon {
+  width: auto;
+  margin: 30px;
 }
 

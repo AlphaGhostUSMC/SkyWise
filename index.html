@@ -29,8 +29,26 @@
             <form id="get-weather"><input class="form-control" type="search" id="location-search-input" placeholder="Enter City Name"></form>
         </div>
     </header>
-    <div id="weather-result"></div>
-    <!--Weather diplayed here-->
+    <div id="weather-card-main">
+        <div id="weather"><img id="weather-icon" src="https://img.icons8.com/fluency/96/null/rain.png" alt="rain">
+            <h1 id="temperature-main">15°c</h1>
+            <h2 id="city-main">San Diego</h2>
+            <div id="weather-details-main">
+                <div id="col"><img src="https://img.icons8.com/fluency/96/null/hygrometer.png">
+                    <div>
+                        <p id="humidity-text-main">78%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div id="col"><img src="https://img.icons8.com/fluency/96/null/wind.png">
+                    <div>
+                        <p id="wind-text-main">6 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/lottie-player.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

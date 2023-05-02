@@ -1,6 +1,6 @@
 // Get the city input and weather results elements
 const cityInput = document.querySelector("#location-search-input");
-const weatherResults = document.querySelector("#weather-result");
+const weatherResults = document.querySelector("#weather-card-main");
 
 // Add a submit event listener to the form
 document.querySelector("#get-weather").addEventListener("submit", (e) => {
