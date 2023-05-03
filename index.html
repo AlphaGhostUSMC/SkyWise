@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-<link type="image/png" sizes="96x96" rel="icon" href="assets\img\umbrella.png">
+<link type="image/png" sizes="96x96" rel="icon" href="assets/img/weather-icons/umbrella.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SkyWise</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Artifika&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -24,9 +25,15 @@
             </div>
         </div>
         <div class="tada animated city-search-container"><i class="fas fa-search-location" data-bss-hover-animate="flash" width="2em" height="2em" style="font-size: 25px;"></i>
-            <form class="get-weather"><input class="form-control location-search-input" type="search" placeholder="Location"></form>
+            <form class="get-weather"><input class="form-control location-search-input" type="search" id="location-search-input" placeholder="Location" spellcheck="false"></form>
         </div>
     </header>
+    <div class="weather-container-main">
+        <div class="weather-main"><img class="weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
+            <h1 class="temp-main">12℃</h1>
+            <h2 class="city-main">San Diego</h2>
+        </div>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/lottie-player.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
