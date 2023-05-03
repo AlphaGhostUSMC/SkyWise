@@ -151,3 +151,181 @@ label {
 color gradient
 E1B158
 daa520
+#87CEEB
+
+_____________________________________________
+
+#home-header {
+  width: auto;
+  height: 110px;
+  margin: 10px;
+  padding-right: 50px;
+  padding-left: 50px;
+  border-radius: 2em;
+  border-bottom: 5px inset #daa520;
+  background: #333333;
+  transition: ease-in-out;
+  transform-style: preserve-3d;
+  display: flex;
+  position: relative;
+}
+
+#brand-heading {
+  width: auto;
+  height: auto;
+  margin-right: 0px;
+  margin-left: 50px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  margin-top: 0px;
+  float: left;
+  position: absolute;
+  left: 0;
+}
+
+#brand-heading-text1 {
+  color: #87CEEB;
+  font-weight: normal;
+  font-family: 'Aclonica';
+  margin-top: 17px;
+}
+
+#brand-heading-text2 {
+  color: #daa520;
+  font-family: Artifika, serif;
+  font-weight: bold;
+  margin-left: 5px;
+  border-radius: 10px;
+  padding-top: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  border: 3px outset #daa520;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0px 4px 4px 1px #daa520;
+}
+
+#logo-container {
+  width: auto;
+  height: auto;
+  margin-top: -60px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: -10px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+#logo-gif {
+  width: auto;
+  height: auto;
+  min-width: 50px;
+  max-width: 100px;
+  min-height: 50px;
+  max-height: 100px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+#search-container {
+  float: right;
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  padding-top: 35px;
+  width: auto;
+  height: auto;
+}
+
+#location-search-input:focus {
+  outline: none;
+}
+
+#location-search-input {
+  background: #ffffff00;
+  color: rgb(255,255,255);
+  font-family: Anybody, serif;
+  font-style: italic;
+  font-size: 16px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: center;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-bottom-style: solid;
+  border-bottom-color: #daa520;
+  border-left-style: hidden;
+}
+
+#search-icon {
+  width: 24px;
+  height: 22px;
+  color: #daa520;
+}
+
+#get-weather {
+  outline: none;
+}
+
+#get-weather:focus {
+  outline: none;
+}
+
+.weather-card-main {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #333333, #0f0f0f);
+  color: #87ceeb;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+  border-bottom: 5px inset #daa520;
+  border-right: 5px outset #daa520;
+}
+
+#weather-icon {
+  width: 86px;
+  margin: 30px;
+}
+
+.weather h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+
+.weather-details-main {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidity-text-main, .wind-text-main {
+  font-size: 28px;
+  margin-top: -6px;
+}
+
+______________________________________________
