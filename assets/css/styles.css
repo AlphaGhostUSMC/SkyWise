@@ -105,11 +105,45 @@
   max-width: 470px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  margin: 10px 10px;
+  margin: 10px;
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
+}
+
+.wind-humidity-container-main {
+  width: 90%;
+  max-width: 470px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.humidity-container-main {
+  width: 49%;
+  background: linear-gradient(165deg, #141414, #4d4d4d);
+  color: #87ceeb;
+  border-radius: 20px;
+  padding: 40px 35px;
+  border-bottom: 5px inset #daa520;
+  border-right: 5px outset #daa520;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wind-container-main {
+  width: 49%;
+  background: linear-gradient(165deg, #141414, #4d4d4d);
+  color: #87ceeb;
+  border-radius: 20px;
+  padding: 40px 35px;
+  border-bottom: 5px inset #daa520;
+  border-right: 5px outset #daa520;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
