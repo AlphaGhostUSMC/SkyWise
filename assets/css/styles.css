@@ -75,6 +75,12 @@
   color: #daa520;
 }
 
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .get-weather:focus {
   outline: none;
 }
@@ -100,6 +106,11 @@
   margin-left: 5px;
 }
 
+.weather-icon-main {
+  max-width: 100%;
+  height: auto;
+}
+
 .weather-container-main {
   width: 90%;
   max-width: 470px;
@@ -111,6 +122,8 @@
   text-align: center;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
+  display: flex;
+  justify-content: center;
 }
 
 .wind-humidity-container-main {
@@ -142,6 +155,23 @@
   padding: 40px 35px;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wind-sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wind-direction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gust-speed {
   display: flex;
   flex-direction: column;
   align-items: center;

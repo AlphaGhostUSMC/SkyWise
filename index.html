@@ -29,25 +29,28 @@
         </div>
     </header>
     <div data-bss-hover-animate="pulse" class="weather-container-main">
-        <div class="weather-main"><img class="weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
-            <h1 class="temp-main">12℃</h1>
-            <h2 class="city-main">San Diego</h2>
+        <div class="weather-main">
+            <h2 class="city-main">San Diego</h2><img class="weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
+            <p class="temp-main">12℃</p>
+            <p class="temp-description">Cloudy</p>
         </div>
     </div>
     <div class="wind-humidity-container-main">
         <div data-bss-hover-animate="pulse" class="humidity-container-main">
             <h4>Humidity</h4><img id="humidity-icon-main" src="assets/img/weather-icons/humidity.png" height="96" width="96" alt="humidity">
-            <div>
-                <div>
-                    <p class="humidity-main">68%</p>
-                </div>
-            </div>
+            <p class="humidity-main">68%</p>
         </div>
         <div data-bss-hover-animate="pulse" class="wind-container-main">
             <h4>Wind</h4><img id="wind-icon-main" src="assets/img/weather-icons/wind.png" width="96" height="96" alt="wind">
-            <div>
-                <div>
-                    <p class="wind-main">12 km/h</p>
+            <p class="wind-main">12 km/h</p>
+            <div class="wind-sub">
+                <div class="wind-direction">
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_PBgNop.json" mode="normal"></lottie-player>
+                    <p>269</p>
+                </div>
+                <div class="gust-speed">
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_PBgNop.json" mode="normal"></lottie-player>
+                    <p>1.29 km/h</p>
                 </div>
             </div>
         </div>
@@ -55,6 +58,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/lottie-player.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/fetch-weather.js"></script>
 </body>
 
 </html>
