@@ -179,11 +179,38 @@
   padding-left: 1em;
 }
 
-.wind-direction-degree {
+.wind-direction-degree-text {
   font-size: 0.8rem;
 }
 
-.gust-speed {
+.gust-speed-text {
   font-size: 0.8rem;
+}
+
+.humidity-sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.visiblity-distance-text {
+  font-size: 0.8rem;
+}
+
+.atm-pressure-text {
+  font-size: 0.8rem;
+}
+
+.visiblity-distance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1em;
+}
+
+.atm-pressure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 1em;
 }
 
