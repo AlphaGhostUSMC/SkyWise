@@ -6,14 +6,14 @@
 <link type="image/png" sizes="96x96" rel="icon" href="assets/img/weather-icons/umbrella.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SkyWise</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Artifika&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=3f30c2c47d7d23c7a994db0c862d45a5">
+    <link rel="stylesheet" href="assets/css/Aclonica.css?h=8c1fe3f484260b9b7eb69668ea20eb70">
+    <link rel="stylesheet" href="assets/css/Anybody.css?h=bf75aeae1bb7796f84367635d5596071">
+    <link rel="stylesheet" href="assets/css/Artifika.css?h=75ff3a2588078569833c9b16e24d27e9">
+    <link rel="stylesheet" href="assets/css/Poppins.css?h=8450d4f89741f850a99d4863329a35d5">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css?h=bb270fba1988038f5680f75b7475565e">
+    <link rel="stylesheet" href="assets/css/animate.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b">
+    <link rel="stylesheet" href="assets/css/styles.css?h=09866c3312e6ea8ebd3b2d2a07ec7b9e">
 </head>
 
 <body>
@@ -28,43 +28,81 @@
             <form class="get-weather"><input class="form-control location-search-input" type="search" id="location-search-input" placeholder="Location" spellcheck="false"></form>
         </div>
     </header>
-    <div data-bss-hover-animate="pulse" class="weather-container-main">
-        <div class="weather-main">
-            <h2 class="city-main">CityName</h2><img class="img-fluid weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
-            <p class="temp-main">00℃</p>
-            <p class="temp-description">NA</p>
-        </div>
-    </div>
-    <div class="wind-humidity-container-main">
-        <div data-bss-hover-animate="pulse" class="humidity-container-main">
-            <h4>Humidity</h4><img class="img-fluid" id="humidity-icon-main" src="assets/img/weather-icons/humidity.png" height="96" width="96" alt="humidity">
-            <p class="humidity-main">00%</p>
-            <div class="humidity-sub">
-                <div class="visiblity-distance"><img class="img-fluid" id="visiblity-distance-icon" src="assets/img/weather-icons/visiblity.png" alt="visiblity" width="48" height="48">
-                    <p class="visiblity-distance-text">00 km</p>
-                </div>
-                <div class="atm-pressure"><img class="img-fluid" id="atm-pressure-icon" src="assets/img/weather-icons/Atm-Pressure.png" alt="atm-pressure" width="48" height="48">
-                    <p class="atm-pressure-text">00 hPa</p>
+    <div class="master-weather-container">
+        <!-- Start: current-weather-container -->
+        <div class="current-weather-container">
+            <div data-bss-hover-animate="pulse" class="weather-container-main">
+                <div class="weather-main">
+                    <h2 class="city-main">CityName</h2><img class="img-fluid weather-icon-main" src="assets/img/weather-icons/rain.png?h=5e542dce0a47a1c18d9483ed0685b884" alt="rain">
+                    <p class="temp-main">00℃</p>
+                    <p class="temp-description">NA</p>
                 </div>
             </div>
-        </div>
-        <div data-bss-hover-animate="pulse" class="wind-container-main">
-            <h4>Wind</h4><img class="img-fluid" id="wind-icon-main" src="assets/img/weather-icons/wind.png" width="96" height="96" alt="wind">
-            <p class="wind-main">00 m/s</p>
-            <div class="wind-sub">
-                <div class="wind-direction"><img class="img-fluid" id="wind-direction-icon" src="assets/img/directions/East.png" alt="gust" width="48" height="48">
-                    <p class="wind-direction-degree-text">0°</p>
+            <div class="wind-humidity-container-main">
+                <div data-bss-hover-animate="pulse" class="humidity-container-main">
+                    <h4>Humidity</h4><img class="img-fluid" id="humidity-icon-main" src="assets/img/weather-icons/humidity.png?h=1791cf7465da23b08f8806bd86284938" height="96" width="96" alt="humidity">
+                    <p class="humidity-main">00%</p>
+                    <div class="humidity-sub">
+                        <div class="visiblity-distance"><img class="img-fluid" id="visiblity-distance-icon" src="assets/img/weather-icons/visiblity.png?h=406a897cd06757be54e76c34ab69984f" alt="visiblity" width="48" height="48">
+                            <p class="visiblity-distance-text">00 km</p>
+                        </div>
+                        <div class="atm-pressure"><img class="img-fluid" id="atm-pressure-icon" src="assets/img/weather-icons/Atm-Pressure.png?h=b8de24f23e4c3839c7ad0c5c2c208a57" alt="atm-pressure" width="48" height="48">
+                            <p class="atm-pressure-text">00 hPa</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="gust-speed"><img class="img-fluid" src="assets/img/weather-icons/gust.png" alt="gust" width="48" height="48">
-                    <p class="gust-speed-text">1.29 m/s</p>
+                <div data-bss-hover-animate="pulse" class="wind-container-main">
+                    <h4>Wind</h4><img class="img-fluid" id="wind-icon-main" src="assets/img/weather-icons/wind.png?h=ab3368ea0f5a3c2d65df83f24e0bf0f1" width="96" height="96" alt="wind">
+                    <p class="wind-main">00 m/s</p>
+                    <div class="wind-sub">
+                        <div class="wind-direction"><img class="img-fluid" id="wind-direction-icon" src="assets/img/directions/East.png?h=eb09393e915ee244bb34537cdffbffe4" alt="gust" width="48" height="48">
+                            <p class="wind-direction-degree-text">0°</p>
+                        </div>
+                        <div class="gust-speed"><img class="img-fluid" src="assets/img/weather-icons/gust.png?h=f74af8c94e363ff16f821d3e87f30eb5" alt="gust" width="48" height="48">
+                            <p class="gust-speed-text">1.29 m/s</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div><!-- End: current-weather-container -->
+        <!-- Start: forecast-container -->
+        <div class="forecast-container">
+            <!-- Start: Forecast-day-1 -->
+            <div id="forecast" class="day1-forecast">
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+            </div><!-- End: Forecast-day-1 -->
+            <!-- Start: Forecast-day-2 -->
+            <div id="forecast" class="day2-forecast">
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+            </div><!-- End: Forecast-day-2 -->
+            <!-- Start: Forecast-day-3 -->
+            <div id="forecast" class="day3-forecast">
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+            </div><!-- End: Forecast-day-3 -->
+            <!-- Start: Forecast-day-4 -->
+            <div id="forecast" class="day4-forecast">
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+            </div><!-- End: Forecast-day-4 -->
+            <!-- Start: Forecast-day-5 -->
+            <div id="forecast" class="day5-forecast">
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours"></div>
+            </div><!-- End: Forecast-day-5 -->
+        </div><!-- End: forecast-container -->
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/lottie-player.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/fetch-weather.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=79ff9637b74326c362fb6f7f5801a7ba"></script>
+    <script src="assets/js/lottie-player.min.js?h=3cea14ed971532d963dee147ed927d14"></script>
+    <script src="assets/js/bs-init.js?h=ec5d4df3c798a2943b2ecbac76ebfde0"></script>
+    <script src="assets/js/fetch-weather.js?h=61082dca1ec1628b8b56440920046321"></script>
 </body>
 
 </html>
