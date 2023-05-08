@@ -30,27 +30,25 @@
     </header>
     <div data-bss-hover-animate="pulse" class="weather-container-main">
         <div class="weather-main">
-            <h2 class="city-main">San Diego</h2><img class="weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
+            <h2 class="city-main">San Diego</h2><img class="img-fluid weather-icon-main" src="assets/img/weather-icons/rain.png" alt="rain">
             <p class="temp-main">12℃</p>
             <p class="temp-description">Cloudy</p>
         </div>
     </div>
     <div class="wind-humidity-container-main">
         <div data-bss-hover-animate="pulse" class="humidity-container-main">
-            <h4>Humidity</h4><img id="humidity-icon-main" src="assets/img/weather-icons/humidity.png" height="96" width="96" alt="humidity">
+            <h4>Humidity</h4><img class="img-fluid" id="humidity-icon-main" src="assets/img/weather-icons/humidity.png" height="96" width="96" alt="humidity">
             <p class="humidity-main">68%</p>
         </div>
         <div data-bss-hover-animate="pulse" class="wind-container-main">
-            <h4>Wind</h4><img id="wind-icon-main" src="assets/img/weather-icons/wind.png" width="96" height="96" alt="wind">
+            <h4>Wind</h4><img class="img-fluid" id="wind-icon-main" src="assets/img/weather-icons/wind.png" width="96" height="96" alt="wind">
             <p class="wind-main">12 km/h</p>
             <div class="wind-sub">
-                <div class="wind-direction">
-                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_PBgNop.json" mode="normal"></lottie-player>
-                    <p>269</p>
+                <div class="wind-direction"><img class="img-fluid" id="wind-direction-icon" src="assets/img/directions/East.png" alt="gust" width="48" height="48">
+                    <p class="wind-direction-degree">390</p>
                 </div>
-                <div class="gust-speed">
-                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_PBgNop.json" mode="normal"></lottie-player>
-                    <p>1.29 km/h</p>
+                <div class="gust-speed"><img class="img-fluid" src="assets/img/weather-icons/gust.png" alt="gust" width="48" height="48">
+                    <p class="gust-speed">1.29 km/h</p>
                 </div>
             </div>
         </div>
