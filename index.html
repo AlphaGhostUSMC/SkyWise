@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>SkyWise</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=3f30c2c47d7d23c7a994db0c862d45a5">
-    <link rel="stylesheet" href="assets/css/Aclonica.css?h=a3b4f1b97e0c1259d4e01e64b0780787">
-    <link rel="stylesheet" href="assets/css/Anybody.css?h=49d7af0f455816a3dfa9aefa0c6a79b9">
-    <link rel="stylesheet" href="assets/css/Artifika.css?h=edf835921bb87e2988826df8de2ee942">
-    <link rel="stylesheet" href="assets/css/Poppins.css?h=c87e49fee66babef07bb46c86609be27">
+    <link rel="stylesheet" href="assets/css/Aclonica.css?h=1747337af7d8ee49327a47d9a1bd06e2">
+    <link rel="stylesheet" href="assets/css/Anybody.css?h=d9c0fefab9ef3a9a62433ce8a03359ca">
+    <link rel="stylesheet" href="assets/css/Artifika.css?h=ec59450c6314a362af99452bed7cdc48">
+    <link rel="stylesheet" href="assets/css/Poppins.css?h=0d6ddbcc9abf20870e7c1096ab3e180d">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css?h=bb270fba1988038f5680f75b7475565e">
     <link rel="stylesheet" href="assets/css/animate.min.css?h=5512c3e92e3931978c9ddcc7dbeed22b">
-    <link rel="stylesheet" href="assets/css/styles.css?h=ea930d5e708b2e8d3ab9aafb4d4cc10a">
+    <link rel="stylesheet" href="assets/css/styles.css?h=930aca8f1b92909380912d242b5e8d8a">
 </head>
 
 <body>
@@ -69,7 +69,7 @@
         <div class="forecast-container">
             <!-- Start: Forecast-day-1 -->
             <div id="forecast" class="day1-forecast">
-                <div data-bss-hover-animate="pulse" id="hours">
+                <div data-bss-hover-animate="pulse" id="day">
                     <h5>Tuesday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
@@ -80,13 +80,28 @@
                         </div>
                     </div>
                 </div>
-                <div data-bss-hover-animate="pulse" id="hours"></div>
-                <div data-bss-hover-animate="pulse" id="hours"></div>
-                <div data-bss-hover-animate="pulse" id="hours"></div>
+                <div data-bss-hover-animate="pulse" id="hours" class="day1-hour1">
+                    <h6 id="forecast-time" class="forecast-time">10:10 AM</h6>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
+                        <p>00℃</p>
+                    </div>
+                    <div id="min-max-temp" class="min-max-temp-container">
+                        <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
+                            <p>Min</p>
+                            <p><br>00℃<br><br></p>
+                        </div>
+                        <div id="max-temp">
+                            <p>Max</p>
+                            <p><br>00℃<br><br></p>
+                        </div>
+                    </div>
+                </div>
+                <div data-bss-hover-animate="pulse" id="hours" class="day1-hour2"></div>
+                <div data-bss-hover-animate="pulse" id="hours" class="day1-hour3"></div>
             </div><!-- End: Forecast-day-1 -->
             <!-- Start: Forecast-day-2 -->
             <div id="forecast" class="day2-forecast">
-                <div data-bss-hover-animate="pulse" id="hours">
+                <div data-bss-hover-animate="pulse" id="day">
                     <h5>Wednesday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
@@ -103,7 +118,7 @@
             </div><!-- End: Forecast-day-2 -->
             <!-- Start: Forecast-day-3 -->
             <div id="forecast" class="day3-forecast">
-                <div data-bss-hover-animate="pulse" id="hours">
+                <div data-bss-hover-animate="pulse" id="day">
                     <h5>Thursday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
@@ -120,7 +135,7 @@
             </div><!-- End: Forecast-day-3 -->
             <!-- Start: Forecast-day-4 -->
             <div id="forecast" class="day4-forecast">
-                <div data-bss-hover-animate="pulse" id="hours">
+                <div data-bss-hover-animate="pulse" id="day">
                     <h5>Friday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
@@ -137,7 +152,7 @@
             </div><!-- End: Forecast-day-4 -->
             <!-- Start: Forecast-day-5 -->
             <div id="forecast" class="day5-forecast">
-                <div data-bss-hover-animate="pulse" id="hours">
+                <div data-bss-hover-animate="pulse" id="day">
                     <h5>Saturday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">

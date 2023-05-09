@@ -1,7 +1,9 @@
 .app-header {
   width: auto;
   height: 110px;
-  margin: 10px;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   border-radius: 2em;
   border-bottom: 5px inset #daa520;
   background: #2C2C2C;
@@ -216,7 +218,6 @@
 .master-weather-container {
   display: flex;
   flex-direction: row;
-  gap: 1em;
 }
 
 #hours {
@@ -231,7 +232,7 @@
   flex-direction: column;
   align-items: center;
   margin: 5px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .forecast-container {
@@ -276,5 +277,60 @@
 #sunset-text {
   font-size: 0.7em;
   text-align: center;
+}
+
+#day {
+  width: 149px;
+  height: 149px;
+  background: linear-gradient(165deg, #141414, #4d4d4d);
+  color: #87ceeb;
+  border-radius: 20px;
+  border-bottom: 5px inset #daa520;
+  border-right: 5px outset #daa520;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  justify-content: space-between;
+}
+
+#forecast-time {
+  text-align: center;
+}
+
+#hourly-forecast-temp {
+  display: flex;
+  flex-direction: column;
+}
+
+#hourly-weather-icon {
+  height: 48px;
+  width: 48px;
+}
+
+#hourly-forecast-temp p {
+  font-size: 16px;
+  text-align: center;
+  margin: 0px;
+}
+
+#min-max-temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#min-temp, #max-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#min-temp p, #max-temp p {
+  font-size: 12px;
+  margin: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: -23px;
 }
 
