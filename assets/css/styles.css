@@ -208,7 +208,6 @@
 }
 
 #forecast {
-  border: dotted 2px #000000;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -217,11 +216,12 @@
 .master-weather-container {
   display: flex;
   flex-direction: row;
+  gap: 1em;
 }
 
 #hours {
-  width: 100px;
-  height: 100px;
+  width: 149px;
+  height: 149px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
   border-radius: 20px;
@@ -231,6 +231,7 @@
   flex-direction: column;
   align-items: center;
   margin: 5px;
+  justify-content: space-around;
 }
 
 .forecast-container {
@@ -245,5 +246,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+#sunrise-sunset {
+  display: flex;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#sunrise {
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+#sunset {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+#sunrise-text {
+  font-size: 0.7em;
+  text-align: center;
+}
+
+#sunset-text {
+  font-size: 0.7em;
+  text-align: center;
 }
 
