@@ -68,4 +68,32 @@ function displayWeather(data) {
   windSpeed.textContent = data.wind.speed + " m/s";
   windDirection.textContent = data.wind.deg + "°";
   windGustSpeed.textContent = data.wind.gust + " m/s";
+
+  function wind_direction(deg) {
+    const dirs = [
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW",
+    ];
+    return dirs[Math.round((deg % 360) / 22.5)];
+  }
+
+  const deg = data.wind.deg;
+  const direction = wind_direction(deg);
+  console.log("Wind direction: " + direction);
+
+  const directionIcon = {};
 }
