@@ -44,6 +44,8 @@ function displayWeather(data) {
     "clear sky": "assets/img/weather-icons/sunny.png",
     "few clouds": "assets/img/weather-icons/partly-cloud.png",
     "scattered clouds": "assets/img/weather-icons/partly-cloud.png",
+    "light rain": "assets/img/weather-icons/light-rain.png",
+    "mist": "assets/img/weather-icons/mist.png",
   };
   const currentWeatherIcon = document.querySelector(".weather-icon-main");
   const weatherDescription = weather[0].description;
