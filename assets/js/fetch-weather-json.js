@@ -60,4 +60,12 @@ function displayWeather(data) {
   humidityMain.textContent = main.humidity + "%";
   visibilityMain.textContent = data.visibility / 1000 + " km";
   atmPressureMain.textContent = main.pressure + " hPa";
+
+  const windSpeed = document.querySelector(".wind-main");
+  const windDirection = document.querySelector(".wind-direction-degree-text");
+  const windGustSpeed = document.querySelector(".gust-speed-text");
+
+  windSpeed.textContent = data.wind.speed + " m/s";
+  windDirection.textContent = data.wind.deg + "°";
+  windGustSpeed.textContent = data.wind.gust + " m/s";
 }
