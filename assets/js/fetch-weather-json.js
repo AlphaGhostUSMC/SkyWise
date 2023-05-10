@@ -95,5 +95,25 @@ function displayWeather(data) {
   const direction = wind_direction(deg);
   console.log("Wind direction: " + direction);
 
-  const directionIcon = {};
+  const directionIcon = {
+    N: "assets/img/directions/N.png",
+    NNE: "assets/img/directions/NNE.png",
+    NE: "assets/img/directions/NE.png",
+    ENE: "assets/img/directions/ENE.png",
+    E: "assets/img/directions/E.png",
+    ESE: "assets/img/directions/ESE.png",
+    SE: "assets/img/directions/SE.png",
+    SSE: "assets/img/directions/SSE.png",
+    S: "assets/img/directions/S.png",
+    SSW: "assets/img/directions/SSW.png",
+    SW: "assets/img/directions/SW.png",
+    WSW: "assets/img/directions/WSW.png",
+    W: "assets/img/directions/W.png",
+    WNW: "assets/img/directions/WNW.png",
+    NW: "assets/img/directions/NW.png",
+    NNW: "assets/img/directions/NNW.png",
+  };
+
+  const windDirectionIcon = document.querySelector(".wind-direction-icon");
+  windDirectionIcon.src = directionIcon[direction];
 }
