@@ -329,3 +329,20 @@ _____________________________________________
 }
 
 ______________________________________________
+
+
+const weatherIcons = {
+  "clear sky": "assets/img/weather-icons/sun.png",
+  "few clouds": "assets/img/weather-icons/cloud-sun.png",
+  "scattered clouds": "assets/img/weather-icons/cloud.png",
+  "broken clouds": "assets/img/weather-icons/cloud.png",
+  "shower rain": "assets/img/weather-icons/rain.png",
+  "rain": "assets/img/weather-icons/rain.png",
+  "thunderstorm": "assets/img/weather-icons/thunderstorm.png",
+  "snow": "assets/img/weather-icons/snow.png",
+  "mist": "assets/img/weather-icons/mist.png"
+};
+
+const currentWeatherIcon = document.querySelector(".weather-icon-main");
+const weatherDescription = "rain"; // Replace with actual weather description
+currentWeatherIcon.src = weatherIcons[weatherDescription];
