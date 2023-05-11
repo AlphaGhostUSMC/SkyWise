@@ -39,7 +39,8 @@ function displayWeather(data) {
   const tempMain = document.querySelector(".temp-main");
   const descriptionMain = document.querySelector(".temp-description");
   const weatherIcon = {
-    "overcast clouds": "assets/img/weather-icons/cloudy.png",
+    "overcast clouds": "assets/img/weather-icons/overcast-clouds.png",
+    "broken clouds": "assets/img/weather-icons/broken-clouds.png",
     haze: "assets/img/weather-icons/haze.png",
     "clear sky": "assets/img/weather-icons/sunny.png",
     "few clouds": "assets/img/weather-icons/partly-cloud.png",
