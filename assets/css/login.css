@@ -7,8 +7,8 @@ body {
 }
 
 .login-container {
-  width: 480px;
-  height: 280px;
+  width: 520px;
+  height: 400px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
   border-radius: 20px;
@@ -94,5 +94,44 @@ body {
 
 .username-container input, .password-container input {
   padding-left: 20px;
+}
+
+.brand-logo-container h1 {
+  color: #87ceeb;
+  font-weight: normal;
+  font-family: 'Aclonica';
+}
+
+.brand-logo-container span {
+  color: #daa520;
+  font-family: Artifika, serif;
+  font-weight: bold;
+  margin-left: 5px;
+  border-radius: 0.5em;
+  padding: 5px;
+  border: 3px outset #daa520;
+  box-shadow: 0px 4px 4px 1px #daa520;
+}
+
+.logo-gif-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  margin-top: -60px;
+  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-evenly;
+}
+
+.logo-gif-container lottie-player {
+  margin-top: -3px;
+  max-height: 100px;
+  min-height: 50px;
+  height: auto;
+  max-width: 100px;
+  min-width: 50px;
+  width: auto;
 }
 
