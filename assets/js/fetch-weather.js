@@ -1,5 +1,6 @@
 // Set API endpoint
-const endpoint = "https://api.openweathermap.org/data/2.5/weather";
+const endpointWeather = "https://api.openweathermap.org/data/2.5/weather";
+const endpointForecast = "https://api.openweathermap.org/data/2.5/forecast";
 
 // Set API key
 const apiKey = "1d4298744e7a95525f475935e6ec25db";
@@ -11,11 +12,25 @@ const searchInput = document.querySelector("#location-search-input");
 async function getWeatherData() {
   try {
     // Construct the API URL with the search input and API key
-    const url = `${endpoint}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+    const url = `${endpointWeather}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
     // Display weather data in the UI
     displayWeather(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Get the forecast data based on the search input
+async function getForecastData() {
+  try {
+    // Construct the API URL with the search input and API key
+    const url = `${endpointForecast}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    const data = await response.json();
+    // Display weather data in the UI
+    displayForecast(data);
   } catch (error) {
     console.error(error);
   }
@@ -26,12 +41,15 @@ const searchForm = document.querySelector(".get-weather");
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
   getWeatherData();
+  getForecastData();
 });
 
 // Update the weather data when the page loads
-window.addEventListener("load", () => {
-  getWeatherData();
-});
+// window.addEventListener("load", () => {
+//   getWeatherData();
+// });
+
+
 
 function displayWeather(data) {
   const { name, main, weather } = data;
@@ -119,4 +137,20 @@ function displayWeather(data) {
 
   const windDirectionIcon = document.querySelector(".wind-direction-icon");
   windDirectionIcon.src = directionIcon[direction];
+}
+// Forecast data for the next 5 days
+// day 1
+function displayForecast(data) {
+  const { list } = data;
+
+  const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
+  const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2");
+  const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
+  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");
+
+
+  forecastDay1Hour1.textContent = list[4].dt_txt.slice(11, 16);
+  forecastDay1Hour2.textContent = list[5].dt_txt.slice(11, 16);
+  forecastDay1Hour3.textContent = list[6].dt_txt.slice(11, 16);
+  forecastDay1Hour4.textContent = list[7].dt_txt.slice(11, 16);
 }
