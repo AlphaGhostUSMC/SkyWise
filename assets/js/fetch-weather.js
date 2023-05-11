@@ -65,6 +65,7 @@ function displayWeather(data) {
     "clear sky": "assets/img/weather-icons/sunny.png",
     "light rain": "assets/img/weather-icons/light-rain.png",
     "mist": "assets/img/weather-icons/mist.png",
+    "moderate rain": "assets/img/weather-icons/moderate-rain.png",
   };
   const currentWeatherIcon = document.querySelector(".weather-icon-main");
   const weatherDescription = weather[0].description;
@@ -142,7 +143,6 @@ function displayWeather(data) {
 // day 1
 function displayForecast(data) {
   const { list } = data;
-
   const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
   const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2");
   const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
