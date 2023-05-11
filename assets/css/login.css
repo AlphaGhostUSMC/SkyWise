@@ -61,7 +61,7 @@ body {
 #login-signup-buttons {
   background: #ffffff00;
   color: #87ceeb;
-  font-family: 'Acme';
+  font-family: 'Acme', serif;
   width: 110px;
   border-radius: 1em;
   border-top: 2px double #daa520;
@@ -72,10 +72,27 @@ body {
 }
 
 #login-signup-buttons:hover {
-  background: linear-gradient(to bottom, #daa520, #daa52050);
+  background: linear-gradient(to bottom, #daa520, #daa52025);
 }
 
 #login-signup-buttons:active {
   transform: translateY(2px);
+}
+
+.username-container, .password-container {
+  position: relative;
+}
+
+.username-container i, .password-container i {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  color: #daa520;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.username-container input, .password-container input {
+  padding-left: 20px;
 }
 
