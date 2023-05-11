@@ -39,11 +39,14 @@ function displayWeather(data) {
   const tempMain = document.querySelector(".temp-main");
   const descriptionMain = document.querySelector(".temp-description");
   const weatherIcon = {
-    "overcast clouds": "assets/img/weather-icons/cloudy.png",
+    "overcast clouds": "assets/img/weather-icons/overcast-clouds.png",
+    "few clouds": "assets/img/weather-icons/partly-cloud.png",
+    "broken clouds": "assets/img/weather-icons/broken-clouds.png",
+    "scattered clouds": "assets/img/weather-icons/scattered-clouds.png",
     haze: "assets/img/weather-icons/haze.png",
     "clear sky": "assets/img/weather-icons/sunny.png",
-    "few clouds": "assets/img/weather-icons/partly-cloud.png",
-    "scattered clouds": "assets/img/weather-icons/partly-cloud.png",
+    "light rain": "assets/img/weather-icons/light-rain.png",
+    "mist": "assets/img/weather-icons/mist.png",
   };
   const currentWeatherIcon = document.querySelector(".weather-icon-main");
   const weatherDescription = weather[0].description;
@@ -60,4 +63,60 @@ function displayWeather(data) {
   humidityMain.textContent = main.humidity + "%";
   visibilityMain.textContent = data.visibility / 1000 + " km";
   atmPressureMain.textContent = main.pressure + " hPa";
+
+  const windSpeed = document.querySelector(".wind-main");
+  const windDirection = document.querySelector(".wind-direction-degree-text");
+  const windGustSpeed = document.querySelector(".gust-speed-text");
+
+  windSpeed.textContent = data.wind.speed + " m/s";
+  windDirection.textContent = data.wind.deg + "°";
+  windGustSpeed.textContent = data.wind.gust + " m/s";
+
+  function wind_direction(deg) {
+    const dirs = [
+      "N",
+      "NNE",
+      "NE",
+      "ENE",
+      "E",
+      "ESE",
+      "SE",
+      "SSE",
+      "S",
+      "SSW",
+      "SW",
+      "WSW",
+      "W",
+      "WNW",
+      "NW",
+      "NNW",
+    ];
+    return dirs[Math.round((deg % 360) / 22.5)];
+  }
+
+  const deg = data.wind.deg;
+  const direction = wind_direction(deg);
+  console.log("Wind direction: " + direction);
+
+  const directionIcon = {
+    N: "assets/img/directions/N.png",
+    NNE: "assets/img/directions/NNE.png",
+    NE: "assets/img/directions/NE.png",
+    ENE: "assets/img/directions/ENE.png",
+    E: "assets/img/directions/E.png",
+    ESE: "assets/img/directions/ESE.png",
+    SE: "assets/img/directions/SE.png",
+    SSE: "assets/img/directions/SSE.png",
+    S: "assets/img/directions/S.png",
+    SSW: "assets/img/directions/SSW.png",
+    SW: "assets/img/directions/SW.png",
+    WSW: "assets/img/directions/WSW.png",
+    W: "assets/img/directions/W.png",
+    WNW: "assets/img/directions/WNW.png",
+    NW: "assets/img/directions/NW.png",
+    NNW: "assets/img/directions/NNW.png",
+  };
+
+  const windDirectionIcon = document.querySelector(".wind-direction-icon");
+  windDirectionIcon.src = directionIcon[direction];
 }
