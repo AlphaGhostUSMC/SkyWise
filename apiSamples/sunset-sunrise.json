@@ -1,0 +1,15 @@
+{
+  "results": {
+    "sunrise": "6:00:48 AM",
+    "sunset": "6:37:33 PM",
+    "first_light": "4:45:56 AM",
+    "last_light": "7:52:25 PM",
+    "dawn": "5:38:30 AM",
+    "dusk": "6:59:51 PM",
+    "solar_noon": "12:19:11 PM",
+    "golden_hour": "6:08:16 PM",
+    "day_length": "12:36:45",
+    "timezone": "Asia/Kolkata"
+  },
+  "status": "OK"
+}

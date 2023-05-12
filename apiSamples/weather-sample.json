@@ -1,30 +1,31 @@
 {
-  "coord": { "lon": 80.2785, "lat": 13.0878 },
+  "coord": { "lon": 76.7, "lat": 11.4 },
   "weather": [
-    { "id": 721, "main": "Haze", "description": "haze", "icon": "50d" }
+    {
+      "id": 804,
+      "main": "Clouds",
+      "description": "overcast clouds",
+      "icon": "04d"
+    }
   ],
   "base": "stations",
   "main": {
-    "temp": 32.76,
-    "feels_like": 39.76,
-    "temp_min": 32.76,
-    "temp_max": 33.99,
-    "pressure": 1010,
-    "humidity": 74
+    "temp": 21.38,
+    "feels_like": 20.93,
+    "temp_min": 21.38,
+    "temp_max": 21.38,
+    "pressure": 1012,
+    "humidity": 52,
+    "sea_level": 1012,
+    "grnd_level": 786
   },
-  "visibility": 5000,
-  "wind": { "speed": 1.03, "deg": 0 },
-  "clouds": { "all": 40 },
-  "dt": 1683696617,
-  "sys": {
-    "type": 2,
-    "id": 2012809,
-    "country": "IN",
-    "sunrise": 1683677697,
-    "sunset": 1683723343
-  },
+  "visibility": 10000,
+  "wind": { "speed": 0.59, "deg": 354, "gust": 3.49 },
+  "clouds": { "all": 100 },
+  "dt": 1683874413,
+  "sys": { "country": "IN", "sunrise": 1683851461, "sunset": 1683896893 },
   "timezone": 19800,
-  "id": 1264527,
-  "name": "Chennai",
+  "id": 1253993,
+  "name": "Ooty",
   "cod": 200
 }
