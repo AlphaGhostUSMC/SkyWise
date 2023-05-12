@@ -36,12 +36,26 @@ async function getForecastData() {
   }
 }
 
+async function getNextDayIndex() {
+  try {
+    // Construct the API URL with the search input and API key
+    const url = `${endpointForecast}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    const data = await response.json();
+    // Display weather data in the UI
+    nextDayIndex(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 // Update the weather data when the search form is submitted
 const searchForm = document.querySelector(".get-weather");
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
   getWeatherData();
   getForecastData();
+  getNextDayIndex();
 });
 
 // Update the weather data when the page loads
@@ -139,60 +153,55 @@ function displayWeather(data) {
   const windDirectionIcon = document.querySelector(".wind-direction-icon");
   windDirectionIcon.src = directionIcon[direction];
 }
-// Forecast data for the next 5 days
-// day 1
+
+// Get the date from the forecast data and check if it is the same as today. if true than skip the first index in the list and move to the next index. auto increment the index by 1 untill the date is equal to tomorrow's date. and output the index as the starting point of the forecast data.
+
+
+// yyyy-mm-dd eg. 2023-05-11, 0 is mandatory for the month and day
+
+function getDate() {
+  const today = new Date();
+  today.setHours(today.getHours() + 5); // Add 5 hours
+  today.setMinutes(today.getMinutes() + 30); // Add 30 minutes
+  const date = today.toISOString().split("T")[0];
+  return date;
+}
+
+
+console.log(getDate());
+
+function nextDayIndex(data) {
+  const date = getDate();
+  console.log("Current date is: " + date);
+  const { list } = data;
+  let listIndex = 0;
+  let today = list[listIndex].dt_txt.slice(0, 10);
+  console.log("Forecast date is: " + today);
+  while (date === today) {
+    listIndex++;
+    console.log("Index is: " + listIndex);
+    if (date !== today) {
+      break;
+    }
+    today = list[listIndex].dt_txt.slice(0, 10);
+  }
+  console.log("Next day index is: " + listIndex);
+  const forecastIndex = listIndex;
+  return forecastIndex;
+}
+
+
+console.log(nextDayIndex(data));
+
 function displayForecast(data) {
   const { list } = data;
+  let indexVal = nextDayIndex(data);
   const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
-  const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2");
-  const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
-  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");
-  const forecastDay2Hour1 = document.querySelector(".forecast-day2-hour1");
-  const forecastDay2Hour2 = document.querySelector(".forecast-day2-hour2");
-  const forecastDay2Hour3 = document.querySelector(".forecast-day2-hour3");
-  const forecastDay2Hour4 = document.querySelector(".forecast-day2-hour4");
-  const forecastDay3Hour1 = document.querySelector(".forecast-day3-hour1");
-  const forecastDay3Hour2 = document.querySelector(".forecast-day3-hour2");
-  const forecastDay3Hour3 = document.querySelector(".forecast-day3-hour3");
-  const forecastDay3Hour4 = document.querySelector(".forecast-day3-hour4");
+  const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2"); const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
+  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");;
 
-  forecastDay1Hour1.textContent = list[4].dt_txt.slice(11, 16);
-  forecastDay1Hour2.textContent = list[5].dt_txt.slice(11, 16);
-  forecastDay1Hour3.textContent = list[6].dt_txt.slice(11, 16);
-  forecastDay1Hour4.textContent = list[7].dt_txt.slice(11, 16);
-  forecastDay2Hour1.textContent = list[12].dt_txt.slice(11, 16);
-  forecastDay2Hour2.textContent = list[13].dt_txt.slice(11, 16);
-  forecastDay2Hour3.textContent = list[14].dt_txt.slice(11, 16);
-  forecastDay2Hour4.textContent = list[15].dt_txt.slice(11, 16);
-  forecastDay3Hour1.textContent = list[20].dt_txt.slice(11, 16);
-  forecastDay3Hour2.textContent = list[21].dt_txt.slice(11, 16);
-  forecastDay3Hour3.textContent = list[22].dt_txt.slice(11, 16);
-  forecastDay3Hour4.textContent = list[23].dt_txt.slice(11, 16);
-
-
-  const forecastDay1Hour1Temp = document.querySelector(".forecast-day1-hour1-temp");
-  const forecastDay1Hour2Temp = document.querySelector(".forecast-day1-hour2-temp");
-  const forecastDay1Hour3Temp = document.querySelector(".forecast-day1-hour3-temp");
-  const forecastDay1Hour4Temp = document.querySelector(".forecast-day1-hour4-temp");
-  const forecastDay2Hour1Temp = document.querySelector(".forecast-day2-hour1-temp");
-  const forecastDay2Hour2Temp = document.querySelector(".forecast-day2-hour2-temp");
-  const forecastDay2Hour3Temp = document.querySelector(".forecast-day2-hour3-temp");
-  const forecastDay2Hour4Temp = document.querySelector(".forecast-day2-hour4-temp");
-  const forecastDay3Hour1Temp = document.querySelector(".forecast-day3-hour1-temp");
-  const forecastDay3Hour2Temp = document.querySelector(".forecast-day3-hour2-temp");
-  const forecastDay3Hour3Temp = document.querySelector(".forecast-day3-hour3-temp");
-  const forecastDay3Hour4Temp = document.querySelector(".forecast-day3-hour4-temp");
-
-  forecastDay1Hour1Temp.textContent = list[4].main.temp + " ℃";
-  forecastDay1Hour2Temp.textContent = list[5].main.temp + " ℃";
-  forecastDay1Hour3Temp.textContent = list[6].main.temp + " ℃";
-  forecastDay1Hour4Temp.textContent = list[7].main.temp + " ℃";
-  forecastDay2Hour1Temp.textContent = list[12].main.temp + " ℃";
-  forecastDay2Hour2Temp.textContent = list[13].main.temp + " ℃";
-  forecastDay2Hour3Temp.textContent = list[14].main.temp + " ℃";
-  forecastDay2Hour4Temp.textContent = list[15].main.temp + " ℃";
-  forecastDay3Hour1Temp.textContent = list[20].main.temp + " ℃";
-  forecastDay3Hour2Temp.textContent = list[21].main.temp + " ℃";
-  forecastDay3Hour3Temp.textContent = list[22].main.temp + " ℃";
-  forecastDay3Hour4Temp.textContent = list[23].main.temp + " ℃";
+  forecastDay1Hour1.textContent = list[indexVal].dt_txt.slice(11, 16);
+  forecastDay1Hour2.textContent = list[indexVal + 1].dt_txt.slice(11, 16);
+  forecastDay1Hour3.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
+  forecastDay1Hour4.textContent = list[indexVal + 3].dt_txt.slice(11, 16);
 }
