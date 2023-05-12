@@ -154,10 +154,6 @@ function displayWeather(data) {
   windDirectionIcon.src = directionIcon[direction];
 }
 
-// Get the date from the forecast data and check if it is the same as today. if true than skip the first index in the list and move to the next index. auto increment the index by 1 untill the date is equal to tomorrow's date. and output the index as the starting point of the forecast data.
-
-
-// yyyy-mm-dd eg. 2023-05-11, 0 is mandatory for the month and day
 
 function getDate() {
   const today = new Date();
@@ -191,14 +187,45 @@ function nextDayIndex(data) {
 }
 
 
-console.log(nextDayIndex(data));
+console.log(nextDayIndex());
 
 function displayForecast(data) {
+
+  const day1 = document.querySelector(".day1-text");
+  const day2 = document.querySelector(".day2-text");
+  const day3 = document.querySelector(".day3-text");
+  const day4 = document.querySelector(".day4-text");
+  const day5 = document.querySelector(".day5-text");
+
+  //  Get next days name and display i
+
+  function getWeekdayNames() {
+    const today = new Date();
+    const weekdayNames = [];
+
+    for (let i = 0; i < 6; i++) {
+      const dayName = today.toLocaleString("default", { weekday: "long" });
+      weekdayNames.push(dayName);
+      today.setDate(today.getDate() + 1);
+    }
+
+    return weekdayNames;
+  }
+
+  const weekdayNames = getWeekdayNames();
+
+  day1.textContent = weekdayNames[1];
+  day2.textContent = weekdayNames[2];
+  day3.textContent = weekdayNames[3];
+  day4.textContent = weekdayNames[4];
+  day5.textContent = weekdayNames[5];
+
+
   const { list } = data;
   let indexVal = nextDayIndex(data);
   const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
   const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2"); const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
-  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");;
+  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");
 
   forecastDay1Hour1.textContent = list[indexVal].dt_txt.slice(11, 16);
   forecastDay1Hour2.textContent = list[indexVal + 1].dt_txt.slice(11, 16);
