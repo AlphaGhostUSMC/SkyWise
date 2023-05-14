@@ -358,6 +358,16 @@ ffd87c
 b58f3e
 956d13
 
+Silver gradient
+
+a8a8a8
+d3d3d3
+ffffff
+e6e6e6
+ffffff
+bfbfbf
+8c8c8c
+
 
 
 http://api.openweathermap.org/geo/1.0/direct?q=ooty&limit=1&appid=1d4298744e7a95525f475935e6ec25db
