@@ -111,7 +111,6 @@
   max-width: 470px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  /*margin: 10px;*/
   border-radius: 2em;
   padding: 40px 35px;
   text-align: center;
@@ -126,35 +125,37 @@
   max-width: 470px;
   display: flex;
   /*justify-content: space-between;*/
-  margin-top: 10px;
+  /*margin-top: 10px;*/
+  gap: 10px;
 }
 
 .humidity-container-main {
-  width: 50%;
+  width: 235px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
   border-radius: 2em;
-  padding: 50px 50px;
+  padding-top: 45px;
+  padding-bottom: 45px;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 5px;
 }
 
 .wind-container-main {
-  width: 50%;
+  width: 235px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
   border-radius: 2em;
-  padding: 40px 35px;
+  padding-top: 45px;
+  padding-bottom: 45px;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 5px;
+  /*margin-left: 5px;*/
 }
 
 .wind-sub {
@@ -167,6 +168,7 @@
   flex-direction: column;
   align-items: center;
   padding-right: 1em;
+  margin-right: 20px;
 }
 
 .gust-speed {
@@ -174,6 +176,7 @@
   flex-direction: column;
   align-items: center;
   padding-left: 1em;
+  margin-left: 20px;
 }
 
 .wind-direction-degree-text {
@@ -202,6 +205,7 @@
   flex-direction: column;
   align-items: center;
   padding-right: 1em;
+  margin-right: 21px;
 }
 
 .atm-pressure {
@@ -209,12 +213,14 @@
   flex-direction: column;
   align-items: center;
   padding-left: 1em;
+  margin-left: 20px;
 }
 
 #forecast {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
 }
 
 .master-weather-container {
@@ -222,23 +228,22 @@
   flex-direction: row;
   align-items: flex-start;
   margin: 10px;
-  border: 2px dashed green;
-  border-radius: 2em;
+  /*border: 2px dashed green;*/
+  /*border-radius: 2em;*/
 }
 
 #forecast-widgets {
-  width: 149px;
-  height: 149px;
+  width: 195px;
+  height: 195PX;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  border-radius: 20px;
+  border-radius: 2em;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .forecast-container {
@@ -246,8 +251,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px dashed purple;
-  border-radius: 2em;
+  /*border: 2px dashed purple;*/
+  /*border-radius: 2em;*/
+  margin-left: 10px;
+  gap: 10px;
 }
 
 .current-weather-container {
@@ -255,14 +262,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px dashed orange;
-  border-radius: 2em;
+  /*border: 2px dashed orange;*/
+  /*border-radius: 2em;*/
+  gap: 10px;
 }
 
 #sunrise-sunset {
   display: flex;
-  padding-left: 5px;
-  padding-right: 5px;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -271,12 +277,14 @@
   padding-right: 15px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #sunset {
   padding-left: 15px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #sunrise-text {
@@ -287,21 +295,6 @@
 #sunset-text {
   font-size: 0.7em;
   text-align: center;
-}
-
-#day {
-  width: 149px;
-  height: 149px;
-  background: linear-gradient(165deg, #141414, #4d4d4d);
-  color: #87ceeb;
-  border-radius: 20px;
-  border-bottom: 5px inset #daa520;
-  border-right: 5px outset #daa520;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5px;
-  justify-content: space-between;
 }
 
 #forecast-time {
