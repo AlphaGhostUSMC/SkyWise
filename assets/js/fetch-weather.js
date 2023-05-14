@@ -1,49 +1,55 @@
-// Set API endpoint
 const endpointWeather = "https://api.openweathermap.org/data/2.5/weather";
 const endpointForecast = "https://api.openweathermap.org/data/2.5/forecast";
-
-// Set API key
+const endpointSunsetSunrise = "https://api.sunrisesunset.io/json?";
+const endpointCoordinates = "https://api.openweathermap.org/geo/1.0/direct"
 const apiKey = "1d4298744e7a95525f475935e6ec25db";
 
-// Get the search input element
 const searchInput = document.querySelector("#location-search-input");
 
-// Get the weather data based on the search input
-async function getWeatherData() {
+
+async function getCoordinates() {
   try {
-    // Construct the API URL with the search input and API key
-    const url = `${endpointWeather}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+    const url = `${endpointCoordinates}?q=${searchInput.value}&limit=1&appid=${apiKey}`;
     const response = await fetch(url);
     const data = await response.json();
-    // Display weather data in the UI
+    getLongLati(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const searchForm = document.querySelector(".get-weather");
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  getCoordinates();
+});
+
+
+function getLongLati(data) {
+  const longitude = data[0].lon;
+  const latitude = data[0].lat;
+  getWeatherData(longitude, latitude);
+  getForecastData(longitude, latitude);
+  getSunriseSunset(longitude, latitude);
+}
+
+async function getWeatherData(longitude, latitude) {
+  try {
+    const url = `${endpointWeather}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    const data = await response.json();
     displayWeather(data);
-    getCoordinates(data);
   } catch (error) {
     console.error(error);
   }
 }
 
-// Get the forecast data based on the search input
-async function getForecastData() {
+async function getForecastData(longitude, latitude) {
   try {
-    // Construct the API URL with the search input and API key
-    const url = `${endpointForecast}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+    const url = `${endpointForecast}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
-    // Display weather data in the UI
     displayForecast(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function getNextDayIndex() {
-  try {
-    // Construct the API URL with the search input and API key
-    const url = `${endpointForecast}?q=${searchInput.value}&appid=${apiKey}&units=metric`;
-    const response = await fetch(url);
-    const data = await response.json();
-    // Display weather data in the UI
     nextDayIndex(data);
   } catch (error) {
     console.error(error);
@@ -51,23 +57,23 @@ async function getNextDayIndex() {
 }
 
 
-// Update the weather data when the search form is submitted
-const searchForm = document.querySelector(".get-weather");
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  getWeatherData();
-  getForecastData();
-  getNextDayIndex();
-});
-
-// Update the weather data when the page loads
-// window.addEventListener("load", () => {
-//   getWeatherData();
-// });
-
-
+async function getSunriseSunset(longitude, latitude) {
+  try {
+    const sunriseSunsetDays = getNext5Days();
+    for (let i = 0; i < 5; i++) {
+      const url = `${endpointSunsetSunrise}lat=${latitude}&lng=${longitude}&date=${sunriseSunsetDays[i]}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      displaySunriseSunset(data, i);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 function displayWeather(data) {
+
+  // Main Weather card Section
   const { name, main, weather } = data;
   const cityMain = document.querySelector(".city-name-main");
   const tempMain = document.querySelector(".temp-main");
@@ -91,6 +97,7 @@ function displayWeather(data) {
   descriptionMain.textContent = weather[0].description;
   currentWeatherIcon.src = weatherIcon[weatherDescription];
 
+  // Humidity, Pressure and Visibility
   const humidityMain = document.querySelector(".humidity-main");
   const visibilityMain = document.querySelector(".visibility-distance-text");
   const atmPressureMain = document.querySelector(".atm-pressure-text");
@@ -99,6 +106,7 @@ function displayWeather(data) {
   visibilityMain.textContent = data.visibility / 1000 + " km";
   atmPressureMain.textContent = main.pressure + " hPa";
 
+  // Wind Speed, Direction and Gust
   const windSpeed = document.querySelector(".wind-main");
   const windDirection = document.querySelector(".wind-direction-degree-text");
   const windGustSpeed = document.querySelector(".gust-speed-text");
@@ -156,31 +164,10 @@ function displayWeather(data) {
   windDirectionIcon.src = directionIcon[direction];
 }
 
-
-function getCoordinates(data) {
-  const { coord } = data;
-  const lat = coord.lat;
-  const lon = coord.lon;
-  console.log("Latitude: " + lat);
-  console.log("Longitude: " + lon);
-  return { lat, lon };
-}
-
-
-function getDate() {
-  const today = new Date();
-  today.setHours(today.getHours() + 5); // Add 5 hours
-  today.setMinutes(today.getMinutes() + 30); // Add 30 minutes
-  const date = today.toISOString().split("T")[0];
-  return date;
-}
-
-
-console.log(getDate());
-
+// Get Weekday Names and Index of next day
 function nextDayIndex(data) {
-  const date = getDate();
   const { list } = data;
+  const date = new Date().toISOString().split("T")[0];
   let listIndex = 0;
   let today = list[listIndex].dt_txt.slice(0, 10);
   while (date === today) {
@@ -190,31 +177,28 @@ function nextDayIndex(data) {
     }
     today = list[listIndex].dt_txt.slice(0, 10);
   }
-  console.log("Current date is: " + date);
-  console.log("Forecast date is: " + today);
-  console.log("Next day index is: " + listIndex);
   const forecastIndex = listIndex;
   return forecastIndex;
 }
 
 function getWeekdayNames() {
-  const today = new Date();
+  const date = new Date();
   const weekdayNames = [];
-
-  for (let i = 0; i < 6; i++) {
-    const dayName = today.toLocaleString("default", { weekday: "long" });
-    weekdayNames.push(dayName);
-    today.setDate(today.getDate() + 1);
+  for (let i = 0; i < 7; i++) {
+    weekdayNames.push(date.toLocaleDateString("en-US", { weekday: "long" }));
+    date.setDate(date.getDate() + 1);
   }
-
   return weekdayNames;
 }
 
-const weekdayNames = getWeekdayNames();
+let weekdayNames = getWeekdayNames();
 
+console.log(weekdayNames);
+
+// Forecast Section
 
 function displayForecast(data) {
-
+  const { list } = data;
   const day1 = document.querySelector(".day1-text");
   const day2 = document.querySelector(".day2-text");
   const day3 = document.querySelector(".day3-text");
@@ -227,45 +211,91 @@ function displayForecast(data) {
   day4.textContent = weekdayNames[4];
   day5.textContent = weekdayNames[5];
 
-
-  const { list } = data;
   let indexVal = nextDayIndex(data);
   const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
   const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2");
   const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
   const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");
+  const forecastDay1Hour5 = document.querySelector(".forecast-day1-hour5");
 
-  forecastDay1Hour1.textContent = list[indexVal].dt_txt.slice(11, 16);
-  forecastDay1Hour2.textContent = list[indexVal + 1].dt_txt.slice(11, 16);
-  forecastDay1Hour3.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
-  forecastDay1Hour4.textContent = list[indexVal + 3].dt_txt.slice(11, 16);
+  forecastDay1Hour1.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
+  forecastDay1Hour2.textContent = list[indexVal + 3].dt_txt.slice(11, 16);
+  forecastDay1Hour3.textContent = list[indexVal + 4].dt_txt.slice(11, 16);
+  forecastDay1Hour4.textContent = list[indexVal + 5].dt_txt.slice(11, 16);
+  forecastDay1Hour5.textContent = list[indexVal + 6].dt_txt.slice(11, 16);
+
+  const forecastDay2Hour1 = document.querySelector(".forecast-day2-hour1");
+  const forecastDay2Hour2 = document.querySelector(".forecast-day2-hour2");
+  const forecastDay2Hour3 = document.querySelector(".forecast-day2-hour3");
+  const forecastDay2Hour4 = document.querySelector(".forecast-day2-hour4");
+  const forecastDay2Hour5 = document.querySelector(".forecast-day2-hour5");
+
+  forecastDay2Hour1.textContent = list[indexVal + 10].dt_txt.slice(11, 16);
+  forecastDay2Hour2.textContent = list[indexVal + 11].dt_txt.slice(11, 16);
+  forecastDay2Hour3.textContent = list[indexVal + 12].dt_txt.slice(11, 16);
+  forecastDay2Hour4.textContent = list[indexVal + 13].dt_txt.slice(11, 16);
+  forecastDay2Hour5.textContent = list[indexVal + 14].dt_txt.slice(11, 16);
+
+  const forecastDay3Hour1 = document.querySelector(".forecast-day3-hour1");
+  const forecastDay3Hour2 = document.querySelector(".forecast-day3-hour2");
+  const forecastDay3Hour3 = document.querySelector(".forecast-day3-hour3");
+  const forecastDay3Hour4 = document.querySelector(".forecast-day3-hour4");
+  const forecastDay3Hour5 = document.querySelector(".forecast-day3-hour5");
+
+  forecastDay3Hour1.textContent = list[indexVal + 18].dt_txt.slice(11, 16);
+  forecastDay3Hour2.textContent = list[indexVal + 19].dt_txt.slice(11, 16);
+  forecastDay3Hour3.textContent = list[indexVal + 20].dt_txt.slice(11, 16);
+  forecastDay3Hour4.textContent = list[indexVal + 21].dt_txt.slice(11, 16);
+  forecastDay3Hour5.textContent = list[indexVal + 22].dt_txt.slice(11, 16);
+
+  const forecastDay4Hour1 = document.querySelector(".forecast-day4-hour1");
+  const forecastDay4Hour2 = document.querySelector(".forecast-day4-hour2");
+  const forecastDay4Hour3 = document.querySelector(".forecast-day4-hour3");
+  const forecastDay4Hour4 = document.querySelector(".forecast-day4-hour4");
+  const forecastDay4Hour5 = document.querySelector(".forecast-day4-hour5");
+
+  forecastDay4Hour1.textContent = list[indexVal + 26].dt_txt.slice(11, 16);
+  forecastDay4Hour2.textContent = list[indexVal + 27].dt_txt.slice(11, 16);
+  forecastDay4Hour3.textContent = list[indexVal + 28].dt_txt.slice(11, 16);
+  forecastDay4Hour4.textContent = list[indexVal + 29].dt_txt.slice(11, 16);
+  forecastDay4Hour5.textContent = list[indexVal + 30].dt_txt.slice(11, 16);
+
+  const forecastDay5Hour1 = document.querySelector(".forecast-day5-hour1");
+  const forecastDay5Hour2 = document.querySelector(".forecast-day5-hour2");
+  const forecastDay5Hour3 = document.querySelector(".forecast-day5-hour3");
+  const forecastDay5Hour4 = document.querySelector(".forecast-day5-hour4");
+  const forecastDay5Hour5 = document.querySelector(".forecast-day5-hour5");
+
+  forecastDay5Hour1.textContent = list[indexVal + 34].dt_txt.slice(11, 16);
+  forecastDay5Hour2.textContent = list[indexVal + 35].dt_txt.slice(11, 16);
+  forecastDay5Hour3.textContent = list[indexVal + 36].dt_txt.slice(11, 16);
+  forecastDay5Hour4.textContent = list[indexVal + 37].dt_txt.slice(11, 16);
+  forecastDay5Hour5.textContent = list[indexVal + 38].dt_txt.slice(11, 16);
+
 }
 
 
-const endpointSunsetSunrise = "https://api.sunrise-sunset.org/json?";
-const lat = getCoordinates(data).lat;
-const lon = getCoordinates(data).lon;
-async function getSunsetSunrise() {
-  try {
-    const url = `${endpointSunsetSunrise}lat=${lat}&lng=${lon}&date=${date}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    displaySunsetSunrise(data);
-  } catch (error) {
-    console.log(error);
+function getNext5Days() {
+  let currentDate = new Date();
+  let next5Days = [];
+
+  for (let i = 1; i <= 5; i++) {
+    let nextDate = new Date(currentDate);
+    nextDate.setDate(currentDate.getDate() + i);
+    let formattedDate = nextDate.toISOString().split('T')[0];
+    next5Days.push(formattedDate);
   }
+
+  return next5Days;
 }
 
-function displaySunsetSunrise(data) {
-  const { results } = data;
-  const sunrise = results.sunrise
-  const sunset = results.sunset
+// Example usage:
+let date = getNext5Days();
+console.log(date);
 
-  const sunriseTime = document.querySelector(".sunrise-text1");
-  const sunsetTime = document.querySelector(".sunset-text1");
-
-  sunriseTime.textContent = sunrise;
-  sunsetTime.textContent = sunset;
+function displaySunriseSunset(data, index) {
+  const sunrise = document.querySelector(`.sunrise-text${index + 1}`);
+  const sunset = document.querySelector(`.sunset-text${index + 1}`);
+  sunrise.textContent = data.results.sunrise;
+  sunset.textContent = data.results.sunset;
 }
-

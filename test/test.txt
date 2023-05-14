@@ -346,3 +346,23 @@ const weatherIcons = {
 const currentWeatherIcon = document.querySelector(".weather-icon-main");
 const weatherDescription = "rain"; // Replace with actual weather description
 currentWeatherIcon.src = weatherIcons[weatherDescription];
+
+
+Gold gradient
+
+a47a1e
+d3a84c
+ffec94
+e6be6f
+ffd87c 
+b58f3e
+956d13
+
+
+
+http://api.openweathermap.org/geo/1.0/direct?q=ooty&limit=1&appid=1d4298744e7a95525f475935e6ec25db
+
+https://api.sunrise-sunset.org/json?lat=11.4126769&lng=76.7030504&date=today&timezone=UTC
+
+
+https://api.sunrisesunset.io/json?lat=11.4126769&lng=76.7030504&date=today&formatted=1

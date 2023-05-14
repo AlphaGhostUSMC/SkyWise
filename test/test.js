@@ -269,3 +269,25 @@ function displaySunsetSunrise(data) {
   sunsetTime.textContent = sunset;
 }
 
+async function getSunriseSunset(longitude, latitude) {
+  try {
+    const sunriseSunsetDays = getNext5Days();
+    for(let i=0; i<5; i++) {
+      const url = `${endpointSunsetSunrise}lat=${latitude}&lng=${longitude}&date=${sunriseSunsetDays[i]}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      displaySunriseSunset(data, i);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function displaySunriseSunset(data, index) {
+  const sunrise = document.querySelector(`.sunrise-text${index+1}`);
+  const sunset = document.querySelector(`.sunset-text${index+1}`);
+  sunrise.textContent = data.results.sunrise;
+  sunset.textContent = data.results.sunset;
+}
+
+

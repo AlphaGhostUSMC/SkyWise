@@ -1,9 +1,9 @@
 .app-header {
   width: auto;
   height: 110px;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 2em;
   border-bottom: 5px inset #daa520;
   background: #2C2C2C;
@@ -22,7 +22,7 @@
 .brand-logo-container h1 {
   color: #87ceeb;
   font-weight: normal;
-  font-family: 'Aclonica';
+  font-family: 'Aclonica', sans-serif;
 }
 
 .brand-logo-container span {
@@ -107,12 +107,12 @@
 }
 
 .weather-container-main {
-  width: 90%;
+  width: 100%;
   max-width: 470px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  margin: 10px;
-  border-radius: 20px;
+  /*margin: 10px;*/
+  border-radius: 2em;
   padding: 40px 35px;
   text-align: center;
   border-bottom: 5px inset #daa520;
@@ -122,37 +122,39 @@
 }
 
 .wind-humidity-container-main {
-  width: 90%;
+  width: 100%;
   max-width: 470px;
   display: flex;
-  justify-content: space-between;
-  margin: 10px;
+  /*justify-content: space-between;*/
+  margin-top: 10px;
 }
 
 .humidity-container-main {
-  width: 49%;
+  width: 50%;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  border-radius: 20px;
-  padding: 40px 35px;
+  border-radius: 2em;
+  padding: 50px 50px;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 5px;
 }
 
 .wind-container-main {
-  width: 49%;
+  width: 50%;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
-  border-radius: 20px;
+  border-radius: 2em;
   padding: 40px 35px;
   border-bottom: 5px inset #daa520;
   border-right: 5px outset #daa520;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 5px;
 }
 
 .wind-sub {
@@ -218,9 +220,13 @@
 .master-weather-container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  margin: 10px;
+  border: 2px dashed green;
+  border-radius: 2em;
 }
 
-#hours {
+#forecast-widgets {
   width: 149px;
   height: 149px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
@@ -240,6 +246,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  border: 2px dashed purple;
+  border-radius: 2em;
 }
 
 .current-weather-container {
@@ -247,6 +255,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  border: 2px dashed orange;
+  border-radius: 2em;
 }
 
 #sunrise-sunset {
