@@ -11,14 +11,18 @@
     <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicons/fav180.png?h=8c450abd01546622678697f22db3dc76">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/fav192.png?h=7562e8d2b690ec58961014a0ccee3003">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=3f30c2c47d7d23c7a994db0c862d45a5">
-    <link rel="stylesheet" href="assets/css/Aclonica.css?h=b1c4442de55f5de75834bd38fc539e20">
-    <link rel="stylesheet" href="assets/css/Acme.css?h=3b84836fd60eff2f0663b181e6c86055">
-    <link rel="stylesheet" href="assets/css/Anybody.css?h=023ddf178271aefc259101d1c95ae5c0">
-    <link rel="stylesheet" href="assets/css/Artifika.css?h=52cf8fc9a616d8b63d4f8a23f41d4261">
-    <link rel="stylesheet" href="assets/css/Poppins.css?h=faf54976e1554c71e9c8217a7cfeb82a">
+    <link rel="stylesheet" href="assets/css/Aclonica.css?h=2980f49b5c2dd5f825a38fd37f3cf114">
+    <link rel="stylesheet" href="assets/css/Acme.css?h=c77acea4e0353ee8805f9fc2e5a6dc2d">
+    <link rel="stylesheet" href="assets/css/Anybody.css?h=fbe3601e2d2d098e197dcfb2f5718f24">
+    <link rel="stylesheet" href="assets/css/Artifika.css?h=d9e68643baa4bdacca9f8cded41a6cca">
+    <link rel="stylesheet" href="assets/css/Lato.css?h=83efeb8b3cc454271fb946cdc0329ff4">
+    <link rel="stylesheet" href="assets/css/Montserrat.css?h=33e0f5120599a9df29290dad2d7b3fe8">
+    <link rel="stylesheet" href="assets/css/Orbitron.css?h=41a6e7a8c1e36b2875b17071af1abcd7">
+    <link rel="stylesheet" href="assets/css/Poppins.css?h=2357119be9dd52bc2c1de1992490331d">
+    <link rel="stylesheet" href="assets/css/Roboto.css?h=340e6f737180090121a7e8948ff2aafd">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css?h=672aa76c9107a6375d923ad98d96db75">
+    <link rel="stylesheet" href="assets/css/styles.css?h=ea51d1dd016adbb0711dcbce8bc08ae7">
 </head>
 
 <body>
@@ -42,7 +46,7 @@
             <div data-bss-hover-animate="pulse" class="weather-container-main">
                 <div class="weather-main">
                     <h2 class="city-name-main">CityName</h2><img class="img-fluid weather-icon-main" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8" alt="weather-icon">
-                    <p class="temp-main">00℃</p>
+                    <p id="metrics-text" class="temp-main">00℃</p>
                     <p class="temp-description">NA</p>
                 </div>
             </div><!-- End: weather-container-main -->
@@ -51,26 +55,26 @@
                 <!-- Start: humidity-container-main -->
                 <div data-bss-hover-animate="pulse" class="humidity-container-main">
                     <h4>Humidity</h4><img class="img-fluid" id="humidity-icon-main" src="assets/img/weather-icons/humidity.png?h=1791cf7465da23b08f8806bd86284938" height="96" width="96" alt="humidity">
-                    <p class="humidity-main">00 %</p>
+                    <p id="metrics-text" class="humidity-main">00 %</p>
                     <div class="humidity-sub">
                         <div class="visiblity-distance"><img class="img-fluid" id="visiblity-distance-icon" src="assets/img/weather-icons/visiblity.png?h=406a897cd06757be54e76c34ab69984f" alt="visiblity" width="48" height="48">
-                            <p class="visibility-distance-text">00 km</p>
+                            <p id="metrics-text" class="visibility-distance-text">00 km</p>
                         </div>
                         <div class="atm-pressure"><img class="img-fluid" id="atm-pressure-icon" src="assets/img/weather-icons/Atm-Pressure.png?h=b8de24f23e4c3839c7ad0c5c2c208a57" alt="atm-pressure" width="48" height="48">
-                            <p class="atm-pressure-text">0000 hPa</p>
+                            <p id="metrics-text" class="atm-pressure-text">0000 hPa</p>
                         </div>
                     </div>
                 </div><!-- End: humidity-container-main -->
                 <!-- Start: wind-container-main -->
                 <div data-bss-hover-animate="pulse" class="wind-container-main">
                     <h4>Wind</h4><img class="img-fluid" id="wind-icon-main" src="assets/img/weather-icons/wind.png?h=ab3368ea0f5a3c2d65df83f24e0bf0f1" width="96" height="96" alt="wind">
-                    <p class="wind-main">00 m/s</p>
+                    <p id="metrics-text" class="wind-main">00 m/s</p>
                     <div class="wind-sub">
                         <div class="wind-direction"><img class="img-fluid wind-direction-icon" id="wind-direction-icon" src="assets/img/directions/N.png?h=f5b5ab3db27f8b967809488914e9c33e" alt="gust" width="48" height="48">
-                            <p class="wind-direction-degree-text">0°</p>
+                            <p id="metrics-text" class="wind-direction-degree-text">0°</p>
                         </div>
                         <div class="gust-speed"><img class="img-fluid" src="assets/img/weather-icons/gust.png?h=f74af8c94e363ff16f821d3e87f30eb5" alt="gust" width="48" height="48">
-                            <p class="gust-speed-text">0.00 m/s</p>
+                            <p id="metrics-text" class="gust-speed-text">0.00 m/s</p>
                         </div>
                     </div>
                 </div><!-- End: wind-container-main -->
@@ -81,7 +85,7 @@
             <!-- Start: Forecast-day-1 -->
             <div id="forecast" class="day1-forecast">
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 class="day1-text">Tuesday</h6>
+                    <h5 id="weekday" class="day1-text">Tuesday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px" alt="sunrise">
                             <p id="sunrise-text" class="sunrise-text1">00:00:00 AM</p>
@@ -92,82 +96,82 @@
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day1-hour1">10:00 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p class="forecast-day1-hour1-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day1-hour1">10:00 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day1-hour1-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-11"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="max-temp-11"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day1-hour2">11:00 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/heavy-rain.png?h=581fcc3365f177baee3b1babf2a53699">
-                        <p class="forecast-day1-hour2-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day1-hour2">11:00 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour2-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day1-hour2-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-12"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day1-hour3">12:00 PM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p class="forecast-day1-hour3-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day1-hour3">12:00 PM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour3-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day1-hour3-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-13"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day1-hour4">01:00 PM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p class="forecast-day1-hour4-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day1-hour4">01:00 PM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour4-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day1-hour4-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-14"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day1-hour5">01:00 PM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p class="forecast-day1-hour5-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day1-hour5">01:00 PM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour5-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day1-hour5-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-15"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
@@ -175,93 +179,93 @@
             <!-- Start: Forecast-day-2 -->
             <div id="forecast" class="day2-forecast">
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 class="day2-text">Wednesday</h6>
+                    <h5 id="weekday" class="day2-text">Wednesday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
                             <p id="sunrise-text" class="sunrise-text2">00:00:00 AM</p>
                         </div>
                         <div id="sunset"><img class="img-fluid" src="assets/img/weather-icons/sunset.png?h=529cc9c8326232bf9dd863dca165b944" width="48px" height="48px">
-                            <p id="sunset-text" class="sunset-text2">00:00:0 PM</p>
+                            <p id="sunset-text" class="sunset-text2">00:00:00 PM</p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day2-hour1">10:00 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p class="forecast-day2-hour1-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day2-hour1">10:00 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day2-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day2-hour1-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-21"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day2-hour2">11:00 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/light-rain.png?h=54ec49656038fb58ac34118dca54b6c5">
-                        <p class="forecast-day2-hour2-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day2-hour2">11:00 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day2-hour2-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day2-hour2-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-22"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day2-hour3">12:00 PM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/windy.png?h=f1ff09fa7bac0fc282cd1265d48c2f9f">
-                        <p class="forecast-day2-hour3-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day2-hour3">12:00 PM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day2-hour3-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day2-hour3-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-23"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day2-hour4">01:00 PM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p class="forecast-day2-hour4-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day2-hour4">01:00 PM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day2-hour4-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day2-hour4-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-24"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day2-hour5">01:00 PM</h6>
-                    <div id="hourly-forecast-tem"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p class="forecast-day2-hour5-temp">00℃</p>
+                    <h5 id="forecast-time" class="forecast-day2-hour5">01:00 PM</h5>
+                    <div id="hourly-forecast-tem"><img class="img-fluid day2-hour5-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day2-hour5-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-25"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
@@ -269,7 +273,7 @@
             <!-- Start: Forecast-day-3 -->
             <div id="forecast" class="day3-forecast">
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 class="day3-text">Thursday</h6>
+                    <h5 id="weekday" class="day3-text">Thursday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
                             <p id="sunrise-text" class="sunrise-text3">00:00:00 AM</p>
@@ -280,82 +284,82 @@
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day3-hour1">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/moderate-rain.png?h=5e542dce0a47a1c18d9483ed0685b884">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day3-hour1">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day3-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day3-hour1-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-31"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day3-hour2">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/moderate-rain.png?h=5e542dce0a47a1c18d9483ed0685b884">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day3-hour2">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day3-hour2-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day3-hour2-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-32"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day3-hour3">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/heavy-rain.png?h=581fcc3365f177baee3b1babf2a53699">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day3-hour3">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day3-hour3-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day3-hour3-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-33"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day3-hour4">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/heavy-rain.png?h=581fcc3365f177baee3b1babf2a53699">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day3-hour4">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day3-hour4-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day3-hour4-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-34"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day3-hour5">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/heavy-rain.png?h=581fcc3365f177baee3b1babf2a53699">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day3-hour5">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day3-hour5-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day3-hour5-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-35"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
@@ -363,7 +367,7 @@
             <!-- Start: Forecast-day-4 -->
             <div id="forecast" class="day4-forecast">
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 class="day4-text">Friday</h6>
+                    <h5 id="weekday" class="day4-text">Friday</h5>
                     <div id="sunrise-sunset">
                         <div id="sunrise"><img class="img-fluid" src="assets/img/weather-icons/sunrise.png?h=b312b28556c1b705124ea0abbaa1c5df" width="48px" height="48px">
                             <p id="sunrise-text" class="sunrise-text4">00:00:00 AM</p>
@@ -374,82 +378,82 @@
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day4-hour1">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day4-hour1">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day4-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day4-hour1-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-41"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day4-hour2">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day4-hour2">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day4-hour2-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day4-hour2-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-42"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day4-hour3">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/sunny.png?h=91c67f4e954d45c4cebdd1cd2514199e">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day4-hour3">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day4-hour3-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day4-hour3-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-43"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day4-hour4">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day4-hour4">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day4-hour4-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day4-hour4-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp" style="padding-bottom: 0px;padding-top: 0px;">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-44"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
                 <div data-bss-hover-animate="pulse" id="forecast-widgets">
-                    <h6 id="forecast-time" class="forecast-day4-hour5">10:10 AM</h6>
-                    <div id="hourly-forecast-temp"><img class="img-fluid day1-hour1-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/partly-cloud.png?h=81f4c405c51f43b8c51d4fab9a18af27">
-                        <p>00℃</p>
+                    <h5 id="forecast-time" class="forecast-day4-hour5">10:10 AM</h5>
+                    <div id="hourly-forecast-temp"><img class="img-fluid day4-hour5-image-main" id="hourly-weather-icon" src="assets/img/weather-icons/default.png?h=302761b0fe5041dfb65ccfe4e5c1dba8">
+                        <p id="metrics-text" class="forecast-day4-hour5-temp">00℃</p>
                     </div>
                     <div id="min-max-temp" class="min-max-temp-container">
                         <div id="min-temp">
                             <p>Min</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text" class="min-temp-45"><br>00℃<br><br></p>
                         </div>
                         <div id="max-temp">
                             <p>Max</p>
-                            <p><br>00℃<br><br></p>
+                            <p id="metrics-text"><br>00℃<br><br></p>
                         </div>
                     </div>
                 </div>
