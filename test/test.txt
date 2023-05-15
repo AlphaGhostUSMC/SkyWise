@@ -376,3 +376,44 @@ https://api.sunrise-sunset.org/json?lat=11.4126769&lng=76.7030504&date=today&tim
 
 
 https://api.sunrisesunset.io/json?lat=11.4126769&lng=76.7030504&date=today&formatted=1
+
+
+
+async function getSunriseSunset(longitude, latitude) {
+  try {
+    const sunriseSunsetDays = getNext5Days();
+    for (let i = 0; i < 5; i++) {
+      const url = `${endpointSunsetSunrise}lat=${latitude}&lng=${longitude}&date=${sunriseSunsetDays[i]}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      displaySunriseSunset(data, i);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getNext5Days() {
+  let currentDate = new Date();
+  let next5Days = [];
+
+  for (let i = 1; i <= 5; i++) {
+    let nextDate = new Date(currentDate);
+    nextDate.setDate(currentDate.getDate() + i);
+    let formattedDate = nextDate.toISOString().split('T')[0];
+    next5Days.push(formattedDate);
+  }
+
+  return next5Days;
+}
+
+// Example usage:
+let date = getNext5Days();
+console.log(date);
+
+function displaySunriseSunset(data, index) {
+  const sunrise = document.querySelector(`.sunrise-text${index + 1}`);
+  const sunset = document.querySelector(`.sunset-text${index + 1}`);
+  sunrise.textContent = data.results.sunrise;
+  sunset.textContent = data.results.sunset;
+}

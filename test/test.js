@@ -290,4 +290,29 @@ function displaySunriseSunset(data, index) {
   sunset.textContent = data.results.sunset;
 }
 
+function displayForecast(data) {
+  const { list } = data;
+  const dayElements = document.querySelectorAll(".day-text");
+
+  for (let i = 0; i < 5; i++) {
+    dayElements[i].textContent = weekdayNames[i + 1];
+  }
+}
+
+
+function getWeekdayNames() {
+  const date = new Date();
+  const options = { timeZone: "Asia/Kolkata", weekday: "long" };
+  const weekdayNames = [];
+  for (let i = 0; i < 7; i++) {
+    weekdayNames.push(date.toLocaleDateString("en-US", options));
+    date.setDate(date.getDate() + 1);
+  }
+  return weekdayNames;
+}
+
+let weekdayNames = getWeekdayNames();
+
+console.log(weekdayNames);
+
 

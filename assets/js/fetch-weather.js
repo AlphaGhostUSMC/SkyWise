@@ -170,6 +170,7 @@ function nextDayIndex(data) {
   const date = new Date().toISOString().split("T")[0];
   let listIndex = 0;
   let today = list[listIndex].dt_txt.slice(0, 10);
+  console.log(today);
   while (date === today) {
     listIndex++;
     if (date !== today) {
@@ -183,9 +184,10 @@ function nextDayIndex(data) {
 
 function getWeekdayNames() {
   const date = new Date();
+  const options = { timeZone: "Asia/Kolkata", weekday: "long" };
   const weekdayNames = [];
   for (let i = 0; i < 7; i++) {
-    weekdayNames.push(date.toLocaleDateString("en-US", { weekday: "long" }));
+    weekdayNames.push(date.toLocaleDateString("en-US", options));
     date.setDate(date.getDate() + 1);
   }
   return weekdayNames;
@@ -198,80 +200,12 @@ console.log(weekdayNames);
 // Forecast Section
 
 function displayForecast(data) {
-  const { list } = data;
-  const day1 = document.querySelector(".day1-text");
-  const day2 = document.querySelector(".day2-text");
-  const day3 = document.querySelector(".day3-text");
-  const day4 = document.querySelector(".day4-text");
-  const day5 = document.querySelector(".day5-text");
+  // const { list } = data;
+  const dayElements = document.querySelectorAll(".day-text");
 
-  day1.textContent = weekdayNames[1];
-  day2.textContent = weekdayNames[2];
-  day3.textContent = weekdayNames[3];
-  day4.textContent = weekdayNames[4];
-  day5.textContent = weekdayNames[5];
-
-  let indexVal = nextDayIndex(data);
-  const forecastDay1Hour1 = document.querySelector(".forecast-day1-hour1");
-  const forecastDay1Hour2 = document.querySelector(".forecast-day1-hour2");
-  const forecastDay1Hour3 = document.querySelector(".forecast-day1-hour3");
-  const forecastDay1Hour4 = document.querySelector(".forecast-day1-hour4");
-  const forecastDay1Hour5 = document.querySelector(".forecast-day1-hour5");
-
-  forecastDay1Hour1.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
-  forecastDay1Hour2.textContent = list[indexVal + 3].dt_txt.slice(11, 16);
-  forecastDay1Hour3.textContent = list[indexVal + 4].dt_txt.slice(11, 16);
-  forecastDay1Hour4.textContent = list[indexVal + 5].dt_txt.slice(11, 16);
-  forecastDay1Hour5.textContent = list[indexVal + 6].dt_txt.slice(11, 16);
-
-  const forecastDay2Hour1 = document.querySelector(".forecast-day2-hour1");
-  const forecastDay2Hour2 = document.querySelector(".forecast-day2-hour2");
-  const forecastDay2Hour3 = document.querySelector(".forecast-day2-hour3");
-  const forecastDay2Hour4 = document.querySelector(".forecast-day2-hour4");
-  const forecastDay2Hour5 = document.querySelector(".forecast-day2-hour5");
-
-  forecastDay2Hour1.textContent = list[indexVal + 10].dt_txt.slice(11, 16);
-  forecastDay2Hour2.textContent = list[indexVal + 11].dt_txt.slice(11, 16);
-  forecastDay2Hour3.textContent = list[indexVal + 12].dt_txt.slice(11, 16);
-  forecastDay2Hour4.textContent = list[indexVal + 13].dt_txt.slice(11, 16);
-  forecastDay2Hour5.textContent = list[indexVal + 14].dt_txt.slice(11, 16);
-
-  const forecastDay3Hour1 = document.querySelector(".forecast-day3-hour1");
-  const forecastDay3Hour2 = document.querySelector(".forecast-day3-hour2");
-  const forecastDay3Hour3 = document.querySelector(".forecast-day3-hour3");
-  const forecastDay3Hour4 = document.querySelector(".forecast-day3-hour4");
-  const forecastDay3Hour5 = document.querySelector(".forecast-day3-hour5");
-
-  forecastDay3Hour1.textContent = list[indexVal + 18].dt_txt.slice(11, 16);
-  forecastDay3Hour2.textContent = list[indexVal + 19].dt_txt.slice(11, 16);
-  forecastDay3Hour3.textContent = list[indexVal + 20].dt_txt.slice(11, 16);
-  forecastDay3Hour4.textContent = list[indexVal + 21].dt_txt.slice(11, 16);
-  forecastDay3Hour5.textContent = list[indexVal + 22].dt_txt.slice(11, 16);
-
-  const forecastDay4Hour1 = document.querySelector(".forecast-day4-hour1");
-  const forecastDay4Hour2 = document.querySelector(".forecast-day4-hour2");
-  const forecastDay4Hour3 = document.querySelector(".forecast-day4-hour3");
-  const forecastDay4Hour4 = document.querySelector(".forecast-day4-hour4");
-  const forecastDay4Hour5 = document.querySelector(".forecast-day4-hour5");
-
-  forecastDay4Hour1.textContent = list[indexVal + 26].dt_txt.slice(11, 16);
-  forecastDay4Hour2.textContent = list[indexVal + 27].dt_txt.slice(11, 16);
-  forecastDay4Hour3.textContent = list[indexVal + 28].dt_txt.slice(11, 16);
-  forecastDay4Hour4.textContent = list[indexVal + 29].dt_txt.slice(11, 16);
-  forecastDay4Hour5.textContent = list[indexVal + 30].dt_txt.slice(11, 16);
-
-  const forecastDay5Hour1 = document.querySelector(".forecast-day5-hour1");
-  const forecastDay5Hour2 = document.querySelector(".forecast-day5-hour2");
-  const forecastDay5Hour3 = document.querySelector(".forecast-day5-hour3");
-  const forecastDay5Hour4 = document.querySelector(".forecast-day5-hour4");
-  const forecastDay5Hour5 = document.querySelector(".forecast-day5-hour5");
-
-  forecastDay5Hour1.textContent = list[indexVal + 34].dt_txt.slice(11, 16);
-  forecastDay5Hour2.textContent = list[indexVal + 35].dt_txt.slice(11, 16);
-  forecastDay5Hour3.textContent = list[indexVal + 36].dt_txt.slice(11, 16);
-  forecastDay5Hour4.textContent = list[indexVal + 37].dt_txt.slice(11, 16);
-  forecastDay5Hour5.textContent = list[indexVal + 38].dt_txt.slice(11, 16);
-
+  for (let i = 0; i < 5; i++) {
+    dayElements[i].textContent = weekdayNames[i + 1];
+  }
 }
 
 
