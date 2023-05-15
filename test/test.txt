@@ -417,3 +417,37 @@ function displaySunriseSunset(data, index) {
   sunrise.textContent = data.results.sunrise;
   sunset.textContent = data.results.sunset;
 }
+
+
+-----------------------------------
+
+without changing the current style and width of the header how do i keep the header fixed and scroll the content below it
+
+html code
+    <header class="bounce animated app-header">
+        <div class="tada animated brand-logo-container">
+            <h1>Sky<span>Wise</span></h1>
+            <div class="logo-gif-container">
+                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_jmgekfqg.json" mode="bounce" background="transparent" speed="1" loop="" autoplay=""></lottie-player>
+            </div>
+        </div>
+        <div class="tada animated city-search-container"><i class="fas fa-search-location" data-bss-hover-animate="flash" width="2em" height="2em" style="font-size: 25px;"></i>
+            <form class="get-weather"><input class="form-control location-search-input" type="search" id="location-search-input" placeholder="Location" spellcheck="false"></form>
+        </div>
+    </header><!-- End: app-header -->
+
+style.css
+
+.app-header {
+  width: auto;
+  height: 110px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 2em;
+  border-bottom: 5px inset #daa520;
+  background: #2C2C2C;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
