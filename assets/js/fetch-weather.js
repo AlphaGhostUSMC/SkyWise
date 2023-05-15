@@ -6,6 +6,25 @@ const apiKey = "1d4298744e7a95525f475935e6ec25db";
 
 const searchInput = document.querySelector("#location-search-input");
 
+const searchForm = document.querySelector(".get-weather");
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const date = new Date();
+  date.setTime(date.getTime() + 3600 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = "searchInput" + "=" + searchInput.value + ";" + expires + ";path=/";
+  getCoordinates();
+});
+
+// Read the cookie when the page is loaded
+const cookieValue = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('searchInput='))
+  .split('=')[1];
+if (cookieValue) {
+  searchInput.value = cookieValue;
+  getCoordinates();
+}
 
 async function getCoordinates() {
   try {
@@ -17,13 +36,6 @@ async function getCoordinates() {
     console.error(error);
   }
 }
-
-const searchForm = document.querySelector(".get-weather");
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  getCoordinates();
-});
-
 
 function getLongLati(data) {
   const longitude = data[0].lon;
@@ -194,18 +206,31 @@ function getWeekdayNames() {
 }
 
 let weekdayNames = getWeekdayNames();
-
 console.log(weekdayNames);
+
 
 // Forecast Section
 
 function displayForecast(data) {
-  // const { list } = data;
-  const dayElements = document.querySelectorAll(".day-text");
+  const { list } = data;
+  const day1 = document.querySelector(".day1-text");
+  const day2 = document.querySelector(".day2-text");
+  const day3 = document.querySelector(".day3-text");
+  const day4 = document.querySelector(".day4-text");
+  const day5 = document.querySelector(".day5-text");
 
-  for (let i = 0; i < 5; i++) {
-    dayElements[i].textContent = weekdayNames[i + 1];
-  }
+  day1.textContent = weekdayNames[1];
+  day2.textContent = weekdayNames[2];
+  day3.textContent = weekdayNames[3];
+  day4.textContent = weekdayNames[4];
+  day5.textContent = weekdayNames[5];
+
+  const forecastIndex = nextDayIndex(data);
+  console.log(forecastIndex);
+
+  const forecastTime1 = document.querySelector(".forecast-day1-hour1");
+
+  forecastTime1.textContent = list[forecastIndex].dt_txt.slice(11, 16);
 }
 
 

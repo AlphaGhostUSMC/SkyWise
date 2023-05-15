@@ -419,35 +419,91 @@ function displaySunriseSunset(data, index) {
 }
 
 
+error
+
+peError: Cannot set properties of undefined (setting 'textContent')
+    at displayForecast (fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:207:32)
+    at getForecastData (fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:52:5)
+getForecastData @ fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:55
+await in getForecastData (async)
+getLongLati @ fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:32
+getCoordinates @ fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:15
+await in getCoordinates (async)
+(anonymous) @ fetch-weather.js?h=0ad9584cfd5d26000df3a4a004efd037:24
+fe
+
+please fix it
+
 -----------------------------------
 
-without changing the current style and width of the header how do i keep the header fixed and scroll the content below it
 
-html code
-    <header class="bounce animated app-header">
-        <div class="tada animated brand-logo-container">
-            <h1>Sky<span>Wise</span></h1>
-            <div class="logo-gif-container">
-                <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_jmgekfqg.json" mode="bounce" background="transparent" speed="1" loop="" autoplay=""></lottie-player>
-            </div>
-        </div>
-        <div class="tada animated city-search-container"><i class="fas fa-search-location" data-bss-hover-animate="flash" width="2em" height="2em" style="font-size: 25px;"></i>
-            <form class="get-weather"><input class="form-control location-search-input" type="search" id="location-search-input" placeholder="Location" spellcheck="false"></form>
-        </div>
-    </header><!-- End: app-header -->
+const endpointForecast = "https://api.openweathermap.org/data/2.5/forecast";
 
-style.css
 
-.app-header {
-  width: auto;
-  height: 110px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 2em;
-  border-bottom: 5px inset #daa520;
-  background: #2C2C2C;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+
+const apiKey = "1d4298744e7a9ylhl5db";
+
+const searchInput = document.querySelector("#location-search-input");
+
+async function getForecastData(longitude, latitude) {
+  try {
+    const url = `${endpointForecast}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    const response = await fetch(url);
+    const data = await response.json();
+    displayForecast(data);
+    nextDayIndex(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
+
+function nextDayIndex(data) {
+  const { list } = data;
+  const date = new Date().toISOString().split("T")[0];
+  let listIndex = 0;
+  let today = list[listIndex].dt_txt.slice(0, 10);
+  console.log(today);
+  while (date === today) {
+    listIndex++;
+    if (date !== today) {
+      break;
+    }
+    today = list[listIndex].dt_txt.slice(0, 10);
+  }
+  const forecastIndex = listIndex;
+  return forecastIndex;
+}
+
+function getWeekdayNames() {
+  const date = new Date();
+  const options = { timeZone: "Asia/Kolkata", weekday: "long" };
+  const weekdayNames = [];
+  for (let i = 0; i < 7; i++) {
+    weekdayNames.push(date.toLocaleDateString("en-US", options));
+    date.setDate(date.getDate() + 1);
+  }
+  return weekdayNames;
+}
+
+let weekdayNames = getWeekdayNames();
+
+console.log(weekdayNames);
+
+// Forecast Section
+
+function displayForecast(data) {
+  const { list } = data;
+  const dayElements = document.querySelectorAll(".day-text");
+  const forecastElements = document.querySelectorAll(".forecast-day1-hour");
+
+  for (let i = 0; i < 5; i++) {
+    dayElements[i].textContent = weekdayNames[i + 1];
+  }
+
+  const dataIndex = nextDayIndex(data);
+  for (let i = 0; i < 5; i++) {
+    forecastElements[i].textContent = list[dataIndex + i].dt_txt.slice(11, 16);
+  }
+}
+
+please fix the error. the forecastElements[i].textContent is not working

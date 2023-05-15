@@ -316,3 +316,110 @@ let weekdayNames = getWeekdayNames();
 console.log(weekdayNames);
 
 
+function displayForecast(data) {
+  const { list } = data;
+  const dayElements = document.querySelectorAll(".day-text");
+  const forecastElements = document.querySelectorAll("[class^='forecast-day']");
+
+  for (let i = 0; i < 5; i++) {
+    dayElements[i].textContent = weekdayNames[i + 1];
+  }
+
+  const dataIndex = nextDayIndex(data);
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 5; j++) {
+      const forecastIndex = (i * 5) + j;
+      forecastElements[forecastIndex].textContent = list[dataIndex + forecastIndex].dt_txt.slice(11, 16);
+    }
+  }
+}
+
+const searchForm = document.querySelector(".get-weather");
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // Set the cookie expiration date to one hour from now
+  const date = new Date();
+  date.setTime(date.getTime() + 3600 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  // Set the cookie and specify its name, value, expiration date, and path
+  document.cookie = "searchInput" + "=" + searchInput.value + ";" + expires + ";path=/";
+  getCoordinates();
+});
+
+// Read the cookie when the page is loaded
+const cookieValue = document.cookie
+  .split('; ')
+  .find(row => row.startsWith('searchInput='))
+  .split('=')[1];
+if (cookieValue) {
+  searchInput.value = cookieValue;
+  getCoordinates();
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const endpointWeather = "https://api.openweathermap.org/data/2.5/weather";
+  const endpointForecast = "https://api.openweathermap.org/data/2.5/forecast";
+  const endpointSunsetSunrise = "https://api.sunrisesunset.io/json?";
+  const endpointCoordinates = "https://api.openweathermap.org/geo/1.0/direct";
+  const apiKey = "1d4298744e7a95525f475935e6ec25db";
+  const searchInput = document.querySelector("#location-search-input");
+  const searchForm = document.querySelector(".get-weather");
+
+  // Import the jwt library
+  import jwt from 'jsonwebtoken';
+
+  // Function to generate token with payload
+  function generateToken(payload) {
+    const secretKey = "your_secret_key";
+    const token = jwt.sign(payload, secretKey, { algorithm: 'HS256' });
+    return token;
+  }
+
+  // Function to verify and decode token
+  function verifyToken(token) {
+    const secretKey = "your_secret_key";
+    try {
+      const decoded = jwt.verify(token, secretKey);
+      return decoded;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const date = new Date();
+    date.setTime(date.getTime() + 3600 * 1000);
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = "searchInput" + "=" + searchInput.value + ";" + expires + ";path=/";
+    getCoordinates();
+  });
+
+  const cookieValue = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('searchInput='))
+    .split('=')[1];
+
+  if (cookieValue) {
+    searchInput.value = cookieValue;
+    getCoordinates();
+  }
+
+  async function getCoordinates() {
+    try {
+      const url = `${endpointCoordinates}?q=${searchInput.value}&limit=1&appid=${apiKey}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      // Generate token with payload containing longitude and latitude data
+      const payload = { longitude: data[0].lon, latitude: data[0].lat };
+      const token = generateToken(payload);
+      console.log(token);
+
+      
+
+
+
