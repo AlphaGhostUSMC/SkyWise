@@ -350,6 +350,8 @@ currentWeatherIcon.src = weatherIcons[weatherDescription];
 
 Gold gradient
 
+linear-gradient(to bottom, #a47a1e, #d3a84c, #ffec94, #e6be6f, #ffd87c, #b58f3e, #956d13)
+
 a47a1e
 d3a84c
 ffec94

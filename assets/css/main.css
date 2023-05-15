@@ -152,7 +152,7 @@ body {
 #Login-Button {
   background: #ffffff00;
   font-size: 32px;
-  color: #87ceeb;
+  color: #0897e6;
   font-family: 'Acme', serif;
   width: 110px;
   border-radius: 1em;
@@ -164,6 +164,10 @@ body {
 }
 
 #Login-Button:hover {
-  background: linear-gradient(to bottom, #a47a1e, #d3a84c);
+  background: linear-gradient(165deg, #a47a1e, #d3a84c, #ffec94, #e6be6f, #ffd87c, #b58f3e, #956d13);
+}
+
+#Login-Button:active {
+  transform: translateY(2px);
 }
 
