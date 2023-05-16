@@ -272,7 +272,7 @@ function displaySunsetSunrise(data) {
 async function getSunriseSunset(longitude, latitude) {
   try {
     const sunriseSunsetDays = getNext5Days();
-    for(let i=0; i<5; i++) {
+    for (let i = 0; i < 5; i++) {
       const url = `${endpointSunsetSunrise}lat=${latitude}&lng=${longitude}&date=${sunriseSunsetDays[i]}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -284,8 +284,8 @@ async function getSunriseSunset(longitude, latitude) {
 }
 
 function displaySunriseSunset(data, index) {
-  const sunrise = document.querySelector(`.sunrise-text${index+1}`);
-  const sunset = document.querySelector(`.sunset-text${index+1}`);
+  const sunrise = document.querySelector(`.sunrise-text${index + 1}`);
+  const sunset = document.querySelector(`.sunset-text${index + 1}`);
   sunrise.textContent = data.results.sunrise;
   sunset.textContent = data.results.sunset;
 }
@@ -418,8 +418,105 @@ document.addEventListener("DOMContentLoaded", () => {
       const payload = { longitude: data[0].lon, latitude: data[0].lat };
       const token = generateToken(payload);
       console.log(token);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
-      
+  const days = document.querySelectorAll(".forecast-day1-hour"); const { list } = data; let indexVal = nextDayIndex(data);
+
+for(let i=0; i<days.length; i++){ const forecastTime = days[i].querySelector(".forecast-day1-hour-time"); const forecastIcon = days[i].querySelector(".day1-hour-image-main"); const forecastTemp = days[i].querySelector(".forecast-day1-hour-temp"); // const forecastMin = days[i].querySelector(".min-temp-1"+i); // const forecastMax = days[i].querySelector(".max-temp-1"+i);
+
+const description = list[indexVal + 2 + i].weather[0].description;
+console.log("Forecast Date: " + list[indexVal + 2 + i].dt_txt);
+
+forecastTime.textContent = list[indexVal + 2 + i].dt_txt.slice(11, 16);
+forecastIcon.src = weatherIcon[description];
+forecastTemp.textContent = list[indexVal + 2 + i].main.temp + " ℃";
+// forecastMin.textContent = list[indexVal + 2 + i].main.temp_min + " ℃";
+// forecastMax.textContent = list[indexVal + 2 + i].main.temp_max + " ℃";
+
+
+}
+
+const weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] const daysOfWeek = document.querySelectorAll(".day-text"); for(let i=1; i<=4; i++){ daysOfWeek[i-1].textContent = weekdayNames[i]; }
+
+// ---------------------------------------------------------------------------------------------------
+
+const { list } = data;
+let indexVal = nextDayIndex(data);
+
+const setForecast = (index, day, hour) => {
+  const timeSelector = `.forecast-day${day}-hour${hour}`;
+  const iconSelector = `.day${day}-hour${hour}-image-main`;
+  const tempSelector = `.forecast-day${day}-hour${hour}-temp`;
+
+  const forecastTime = document.querySelector(timeSelector);
+  const forecastIcon = document.querySelector(iconSelector);
+  const description = list[index].weather[0].description;
+  const forecastTemp = document.querySelector(tempSelector);
+
+  console.log("Forecast Date: " + list[index].dt_txt);
+  forecastTime.textContent = list[index].dt_txt.slice(11, 16);
+  forecastIcon.src = weatherIcon[description];
+  forecastTemp.textContent = list[index].main.temp + " ℃";
+};
+
+const setForecasts = (day) => {
+  const offset = (day - 1) * 8;
+
+  setForecast(indexVal + offset + 2, day, '1');
+  setForecast(indexVal + offset + 3, day, '2');
+  setForecast(indexVal + offset + 4, day, '3');
+  setForecast(indexVal + offset + 5, day, '4');
+  setForecast(indexVal + offset + 6, day, '5');
+};
+
+setForecasts(1);
+setForecasts(2);
+setForecasts(3);
+setForecasts(4);
+
+// -------------------------------------------------------------------------------
+
+const { list } = data;
+let indexVal = nextDayIndex(data);
+
+const setForecast = (index, timeSelector, iconSelector, tempSelector) => {
+  const forecastTime = document.querySelector(timeSelector);
+  const forecastIcon = document.querySelector(iconSelector);
+  const description = list[index].weather[0].description;
+  const forecastTemp = document.querySelector(tempSelector);
+
+  console.log("Forecast Date: " + list[index].dt_txt);
+  forecastTime.textContent = list[index].dt_txt.slice(11, 16);
+  forecastIcon.src = weatherIcon[description];
+  forecastTemp.textContent = list[index].main.temp + " ℃";
+};
+
+setForecast(indexVal + 2, ".forecast-day1-hour1", ".day1-hour1-image-main", ".forecast-day1-hour1-temp");
+setForecast(indexVal + 3, ".forecast-day1-hour2", ".day1-hour2-image-main", ".forecast-day1-hour2-temp");
+setForecast(indexVal + 4, ".forecast-day1-hour3", ".day1-hour3-image-main", ".forecast-day1-hour3-temp");
+setForecast(indexVal + 5, ".forecast-day1-hour4", ".day1-hour4-image-main", ".forecast-day1-hour4-temp");
+setForecast(indexVal + 6, ".forecast-day1-hour5", ".day1-hour5-image-main", ".forecast-day1-hour5-temp");
+
+setForecast(indexVal + 10, ".forecast-day2-hour1", ".day2-hour1-image-main", ".forecast-day2-hour1-temp");
+setForecast(indexVal + 11, ".forecast-day2-hour2", ".day2-hour2-image-main", ".forecast-day2-hour2-temp");
+setForecast(indexVal + 12, ".forecast-day2-hour3", ".day2-hour3-image-main", ".forecast-day2-hour3-temp");
+setForecast(indexVal + 13, ".forecast-day2-hour4", ".day2-hour4-image-main", ".forecast-day2-hour4-temp");
+setForecast(indexVal + 14, ".forecast-day2-hour5", ".day2-hour5-image-main", ".forecast-day2-hour5-temp");
+
+setForecast(indexVal + 18, ".forecast-day3-hour1", ".day3-hour1-image-main", ".forecast-day3-hour1-temp");
+setForecast(indexVal + 19, ".forecast-day3-hour2", ".day3-hour2-image-main", ".forecast-day3-hour2-temp");
+setForecast(indexVal + 20, ".forecast-day3-hour3", ".day3-hour3-image-main", ".forecast-day3-hour3-temp");
+setForecast(indexVal + 21, ".forecast-day3-hour4", ".day3-hour4-image-main", ".forecast-day3-hour4-temp");
+setForecast(indexVal + 22, ".forecast-day3-hour5", ".day3-hour5-image-main", ".forecast-day3-hour5-temp");
+
+setForecast(indexVal + 26, ".forecast-day4-hour1", ".day4-hour1-image-main", ".forecast-day4-hour1-temp");
+setForecast(indexVal + 27, ".forecast-day4-hour2", ".day4-hour2-image-main", ".forecast-day4-hour2-temp");
+setForecast(indexVal + 28, ".forecast-day4-hour3", ".day4-hour3-image-main", ".forecast-day4-hour3-temp");
+setForecast(indexVal + 29, ".forecast-day4-hour4", ".day4-hour4-image-main", ".forecast-day4-hour4-temp");
+setForecast(indexVal + 30, ".forecast-day4-hour5", ".day4-hour5-image-main", ".forecast-day4-hour5-temp");
 
 
 
