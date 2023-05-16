@@ -379,6 +379,8 @@ https://api.sunrise-sunset.org/json?lat=11.4126769&lng=76.7030504&date=today&tim
 
 https://api.sunrisesunset.io/json?lat=11.4126769&lng=76.7030504&date=today&formatted=1
 
+https://api.openweathermap.org/data/2.5/forecast/daily?q=ooty&units=metric&appid=eec48f1630281ec926acbcbb20931f70
+
 
 
 async function getSunriseSunset(longitude, latitude) {

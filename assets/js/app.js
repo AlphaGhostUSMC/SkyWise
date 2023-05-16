@@ -62,11 +62,28 @@ async function getForecastData(longitude, latitude) {
   }
 }
 
+function getNext5Days() {
+  let currentDate = new Date();
+  let next5Days = [];
+
+  for (let i = 1; i <= 4; i++) {
+    let nextDate = new Date(currentDate);
+    nextDate.setDate(currentDate.getDate() + i);
+    let formattedDate = nextDate.toISOString().split('T')[0];
+    next5Days.push(formattedDate);
+  }
+
+  return next5Days;
+}
+
+// Example usage:
+let date = getNext5Days();
+console.log(date);
 
 async function getSunriseSunset(longitude, latitude) {
   try {
     const sunriseSunsetDays = getNext5Days();
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       const url = `${endpointSunsetSunrise}lat=${latitude}&lng=${longitude}&date=${sunriseSunsetDays[i]}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -141,19 +158,33 @@ function displayWeather(data) {
 }
 
 // Get Weekday Names and Index of next day
+function getDate() {
+  const today = new Date();
+  today.setHours(today.getHours() + 5); // Add 5 hours
+  today.setMinutes(today.getMinutes() + 30); // Add 30 minutes
+  const date = today.toISOString().split("T")[0];
+  return date;
+}
+
+
+console.log(getDate());
+
 function nextDayIndex(data) {
+  const date = getDate();
+  console.log("Current date is: " + date);
   const { list } = data;
-  const date = new Date().toISOString().split("T")[0];
   let listIndex = 0;
   let today = list[listIndex].dt_txt.slice(0, 10);
-  console.log(today);
+  console.log("Forecast date is: " + today);
   while (date === today) {
     listIndex++;
+    console.log("Index is: " + listIndex);
     if (date !== today) {
       break;
     }
     today = list[listIndex].dt_txt.slice(0, 10);
   }
+  console.log("Next day index is: " + listIndex);
   const forecastIndex = listIndex;
   return forecastIndex;
 }
@@ -162,7 +193,7 @@ function getWeekdayNames() {
   const date = new Date();
   const options = { timeZone: "Asia/Kolkata", weekday: "long" };
   const weekdayNames = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 5; i++) {
     weekdayNames.push(date.toLocaleDateString("en-US", options));
     date.setDate(date.getDate() + 1);
   }
@@ -176,49 +207,42 @@ console.log(weekdayNames);
 // Forecast Section
 
 function displayForecast(data) {
-  const { list } = data;
   const day1 = document.querySelector(".day1-text");
   const day2 = document.querySelector(".day2-text");
   const day3 = document.querySelector(".day3-text");
   const day4 = document.querySelector(".day4-text");
-  const day5 = document.querySelector(".day5-text");
+  // const day5 = document.querySelector(".day5-text");
 
   day1.textContent = weekdayNames[1];
   day2.textContent = weekdayNames[2];
   day3.textContent = weekdayNames[3];
   day4.textContent = weekdayNames[4];
-  day5.textContent = weekdayNames[5];
+  // day5.textContent = weekdayNames[5];
 
-  const forecastIndex = nextDayIndex(data);
-  console.log(forecastIndex);
+  const { list } = data;
+  let indexVal = nextDayIndex(data);
+
 
   const forecastTime1 = document.querySelector(".forecast-day1-hour1");
+  const forecastIcon1 = document.querySelector(".day1-hour1-image-main");
+  const description1 = list[indexVal + 2].weather[0].description;
+  const forecastTemp1 = document.querySelector(".forecast-day1-hour1-temp");
+  // const forecastMinTemp1 = document.querySelector(".min-temp-11");
+  // const forecastMaxTemp1 = document.querySelector(".max-temp-11");
 
-  forecastTime1.textContent = list[forecastIndex].dt_txt.slice(11, 16);
+  forecastTime1.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
+  forecastIcon1.src = weatherIcon[description1];
+  forecastTemp1.textContent = list[indexVal + 2].main.temp + " ℃";
+  // forecastMinTemp1.textContent = list[indexVal + 2].main.temp_min + " ℃";
+  // forecastMaxTemp1.textContent = list[indexVal + 2].main.temp_max + " ℃";
+
+
 }
 
-
-function getNext5Days() {
-  let currentDate = new Date();
-  let next5Days = [];
-
-  for (let i = 1; i <= 5; i++) {
-    let nextDate = new Date(currentDate);
-    nextDate.setDate(currentDate.getDate() + i);
-    let formattedDate = nextDate.toISOString().split('T')[0];
-    next5Days.push(formattedDate);
-  }
-
-  return next5Days;
-}
-
-// Example usage:
-let date = getNext5Days();
-console.log(date);
 
 function displaySunriseSunset(data, index) {
-  const sunrise = document.querySelector(`.sunrise-text${index + 1}`);
-  const sunset = document.querySelector(`.sunset-text${index + 1}`);
-  sunrise.textContent = data.results.sunrise;
-  sunset.textContent = data.results.sunset;
+  const sunriseTime = document.querySelector(`.sunrise-text${index + 1}`);
+  const sunsetTime = document.querySelector(`.sunset-text${index + 1}`);
+  sunriseTime.textContent = data.results.sunrise;
+  sunsetTime.textContent = data.results.sunset;
 }
