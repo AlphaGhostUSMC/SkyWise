@@ -229,13 +229,63 @@ function displayForecast(data) {
   const forecastTemp1 = document.querySelector(".forecast-day1-hour1-temp");
   // const forecastMinTemp1 = document.querySelector(".min-temp-11");
   // const forecastMaxTemp1 = document.querySelector(".max-temp-11");
-
+  console.log("Forecast Date: " + list[indexVal + 2].dt_txt);
   forecastTime1.textContent = list[indexVal + 2].dt_txt.slice(11, 16);
   forecastIcon1.src = weatherIcon[description1];
   forecastTemp1.textContent = list[indexVal + 2].main.temp + " ℃";
   // forecastMinTemp1.textContent = list[indexVal + 2].main.temp_min + " ℃";
   // forecastMaxTemp1.textContent = list[indexVal + 2].main.temp_max + " ℃";
 
+  const forecastTime2 = document.querySelector(".forecast-day1-hour2");
+  const forecastIcon2 = document.querySelector(".day1-hour2-image-main");
+  const description2 = list[indexVal + 3].weather[0].description;
+  const forecastTemp2 = document.querySelector(".forecast-day1-hour2-temp");
+  // const forecastMinTemp2 = document.querySelector(".min-temp-12");
+  // const forecastMaxTemp2 = document.querySelector(".max-temp-12");
+  forecastTime2.textContent = list[indexVal + 3].dt_txt.slice(11, 16);
+  forecastIcon2.src = weatherIcon[description2];
+  forecastTemp2.textContent = list[indexVal + 3].main.temp + " ℃";
+  // forecastMinTemp2.textContent = list[indexVal + 3].main.temp_min + " ℃";
+  // forecastMaxTemp2.textContent = list[indexVal + 3].main.temp_max + " ℃";
+
+  const forecastTime3 = document.querySelector(".forecast-day1-hour3");
+  const forecastIcon3 = document.querySelector(".day1-hour3-image-main");
+  const description3 = list[indexVal + 4].weather[0].description;
+  const forecastTemp3 = document.querySelector(".forecast-day1-hour3-temp");
+  // const forecastMinTemp3 = document.querySelector(".min-temp-13");
+  // const forecastMaxTemp3 = document.querySelector(".max-temp-13");
+
+  forecastTime3.textContent = list[indexVal + 4].dt_txt.slice(11, 16);
+  forecastIcon3.src = weatherIcon[description3];
+  forecastTemp3.textContent = list[indexVal + 4].main.temp + " ℃";
+  // forecastMinTemp3.textContent = list[indexVal + 4].main.temp_min + " ℃";
+  // forecastMaxTemp3.textContent = list[indexVal + 4].main.temp_max + " ℃";
+
+  const forecastTime4 = document.querySelector(".forecast-day1-hour4");
+  const forecastIcon4 = document.querySelector(".day1-hour4-image-main");
+  const description4 = list[indexVal + 5].weather[0].description;
+  const forecastTemp4 = document.querySelector(".forecast-day1-hour4-temp");
+  // const forecastMinTemp4 = document.querySelector(".min-temp-14");
+  // const forecastMaxTemp4 = document.querySelector(".max-temp-14");
+
+  forecastTime4.textContent = list[indexVal + 5].dt_txt.slice(11, 16);
+  forecastIcon4.src = weatherIcon[description4];
+  forecastTemp4.textContent = list[indexVal + 5].main.temp + " ℃";
+  // forecastMinTemp4.textContent = list[indexVal + 5].main.temp_min + " ℃";
+  // forecastMaxTemp4.textContent = list[indexVal + 5].main.temp_max + " ℃";
+
+  const forecastTime5 = document.querySelector(".forecast-day1-hour5");
+  const forecastIcon5 = document.querySelector(".day1-hour5-image-main");
+  const description5 = list[indexVal + 6].weather[0].description;
+  const forecastTemp5 = document.querySelector(".forecast-day1-hour5-temp");
+  // const forecastMinTemp5 = document.querySelector(".min-temp-15");
+  // const forecastMaxTemp5 = document.querySelector(".max-temp-15");
+
+  forecastTime5.textContent = list[indexVal + 6].dt_txt.slice(11, 16);
+  forecastIcon5.src = weatherIcon[description5];
+  forecastTemp5.textContent = list[indexVal + 6].main.temp + " ℃";
+  // forecastMinTemp5.textContent = list[indexVal + 6].main.temp_min + " ℃";
+  // forecastMaxTemp5.textContent = list[indexVal + 6].main.temp_max + " ℃";
 
 }
 
