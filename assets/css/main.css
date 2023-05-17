@@ -6,7 +6,7 @@ body {
   height: 100vh;
 }
 
-.login-container {
+.login-container, .register-container {
   width: 520px;
   height: 400px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
@@ -21,7 +21,7 @@ body {
   justify-content: space-evenly;
 }
 
-#login-input {
+#login-input, #register-input {
   background: #ffffff00;
   color: #87ceeb;
   font-family: Anybody, serif;
@@ -29,25 +29,25 @@ body {
   font-size: 1em;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
-  text-align: center;
   border-top-style: hidden;
   border-right-style: hidden;
   border-bottom-style: solid;
   border-bottom-color: #daa520;
   border-left-style: hidden;
   margin-left: 5px;
-  width: 200px;
+  width: 210px;
+  padding-left: 27px;
 }
 
-#login-input:focus {
+#login-input:focus, #register-input:focus {
   outline: none;
 }
 
-#login-input::placeholder {
+#login-input::placeholder, #register-input::placeholder {
   color: #daa520;
   opacity: 0.5;
   text-align: left;
-  padding-left: 10px;
+  padding-left: 15px;
   font-size: 1em;
 }
 
@@ -58,7 +58,7 @@ body {
   justify-content: space-between;
 }
 
-#login-signup-buttons {
+#login-signup-buttons, #register-button {
   background: #ffffff00;
   color: #87ceeb;
   font-family: 'Acme', serif;
@@ -71,19 +71,19 @@ body {
   transition: transform 0.2s;
 }
 
-#login-signup-buttons:hover {
+#login-signup-buttons:hover, #register-button:hover {
   background: linear-gradient(to bottom, #daa520, #daa52025);
 }
 
-#login-signup-buttons:active {
+#login-signup-buttons:active, #register-button:active {
   transform: translateY(2px);
 }
 
-.username-container, .password-container {
+.username-container, .password-container, .email-container {
   position: relative;
 }
 
-.username-container i, .password-container i {
+.username-container i, .password-container i, .email-container i {
   position: absolute;
   top: 50%;
   left: 0.8rem;
@@ -92,7 +92,7 @@ body {
   font-size: 16px;
 }
 
-.username-container input, .password-container input {
+.username-container input, .password-container input, .email-container input {
   padding-left: 20px;
 }
 
