@@ -9,6 +9,7 @@ const weatherIcon = {
     "mist": "assets/img/weather-icons/mist.png",
     "moderate rain": "assets/img/weather-icons/moderate-rain.png",
     "heavy intensity rain": "assets/img/weather-icons/heavy-intensity-rain.png",
+    "light intensity drizzle": "assets/img/weather-icons/light-intensity-drizzle.png",
   };
 
   const directionIcon = {

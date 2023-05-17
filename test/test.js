@@ -519,4 +519,35 @@ setForecast(indexVal + 29, ".forecast-day4-hour4", ".day4-hour4-image-main", ".f
 setForecast(indexVal + 30, ".forecast-day4-hour5", ".day4-hour5-image-main", ".forecast-day4-hour5-temp");
 
 
+// ___________________________
 
+
+
+import mysql.connector
+
+# connect to MySQL server
+db = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword"
+)
+
+# create database if it doesn't exist
+cursor = db.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
+cursor.execute("USE mydatabase")
+
+# create table
+cursor.execute("CREATE TABLE IF NOT EXISTS users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))")
+
+# insert or update record
+username = "JohnDoe"
+email = "johndoe@example.com"
+password = "secretpassword"
+query = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE email=%s, password=%s"
+values = (username, email, password, email, password)
+cursor.execute(query, values)
+db.commit()
+
+# close database connection
+db.close()
