@@ -171,3 +171,36 @@ body {
   transform: translateY(2px);
 }
 
+.error-message {
+  position: absolute;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 0.8em;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 2s, opacity 0.3s linear;
+}
+
+.error-message::after {
+  content: '';
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #ff0000 transparent;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.username-container {
+  position: relative;
+}
+
+.username-container:hover .error-message, .username-container:focus-within .error-message {
+  visibility: visible;
+  opacity: 1;
+}
+
