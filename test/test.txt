@@ -517,3 +517,10 @@ min-temp-11
 
 Image Required
 heavy intensity rain
+
+when clicked the button should redirect to different page
+
+
+<button class="btn btn-primary" id="Login-Button" type="button" onclick="location.href='http://www.example.com';">
+    <i class="far fa-user-circle" id="login-button-icon"></i>
+</button>
