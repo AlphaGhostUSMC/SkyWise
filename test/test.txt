@@ -511,3 +511,9 @@ function displayForecast(data) {
 }
 
 please fix the error. the forecastElements[i].textContent is not working
+
+forecast-day1-hour1-desc
+min-temp-11
+
+Image Required
+heavy intensity rain

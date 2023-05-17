@@ -221,33 +221,42 @@ function displayForecast(data) {
 
   const { list } = data;
   let indexVal = nextDayIndex(data);
-  
+
   const setForecast = (index, day, hour) => {
     const timeSelector = `.forecast-day${day}-hour${hour}`;
     const iconSelector = `.day${day}-hour${hour}-image-main`;
     const tempSelector = `.forecast-day${day}-hour${hour}-temp`;
-  
+    const descSelector = `.forecast-day${day}-hour${hour}-desc`;
+    const minTempSelector = `.min-temp-${day}${hour}`;
+    const maxTempSelector = `.max-temp-${day}${hour}`;
+
     const forecastTime = document.querySelector(timeSelector);
     const forecastIcon = document.querySelector(iconSelector);
     const description = list[index].weather[0].description;
     const forecastTemp = document.querySelector(tempSelector);
-  
+    const forecastDesc = document.querySelector(descSelector);
+    const minTemp = document.querySelector(minTempSelector);
+    const maxTemp = document.querySelector(maxTempSelector);
+
     console.log("Forecast Date: " + list[index].dt_txt);
     forecastTime.textContent = list[index].dt_txt.slice(11, 16);
     forecastIcon.src = weatherIcon[description];
     forecastTemp.textContent = list[index].main.temp + " ℃";
+    forecastDesc.textContent = list[index].weather[0].description;
+    minTemp.textContent = list[index].main.temp_min + " ℃";
+    maxTemp.textContent = list[index].main.temp_max + " ℃";
   };
-  
+
   const setForecasts = (day) => {
     const offset = (day - 1) * 8;
-  
+
     setForecast(indexVal + offset + 2, day, '1');
     setForecast(indexVal + offset + 3, day, '2');
     setForecast(indexVal + offset + 4, day, '3');
     setForecast(indexVal + offset + 5, day, '4');
     setForecast(indexVal + offset + 6, day, '5');
   };
-  
+
   setForecasts(1);
   setForecasts(2);
   setForecasts(3);
