@@ -425,129 +425,193 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const days = document.querySelectorAll(".forecast-day1-hour"); const { list } = data; let indexVal = nextDayIndex(data);
 
-for(let i=0; i<days.length; i++){ const forecastTime = days[i].querySelector(".forecast-day1-hour-time"); const forecastIcon = days[i].querySelector(".day1-hour-image-main"); const forecastTemp = days[i].querySelector(".forecast-day1-hour-temp"); // const forecastMin = days[i].querySelector(".min-temp-1"+i); // const forecastMax = days[i].querySelector(".max-temp-1"+i);
+  for (let i = 0; i < days.length; i++) {
+    const forecastTime = days[i].querySelector(".forecast-day1-hour-time"); const forecastIcon = days[i].querySelector(".day1-hour-image-main"); const forecastTemp = days[i].querySelector(".forecast-day1-hour-temp"); // const forecastMin = days[i].querySelector(".min-temp-1"+i); // const forecastMax = days[i].querySelector(".max-temp-1"+i);
 
-const description = list[indexVal + 2 + i].weather[0].description;
-console.log("Forecast Date: " + list[indexVal + 2 + i].dt_txt);
+    const description = list[indexVal + 2 + i].weather[0].description;
+    console.log("Forecast Date: " + list[indexVal + 2 + i].dt_txt);
 
-forecastTime.textContent = list[indexVal + 2 + i].dt_txt.slice(11, 16);
-forecastIcon.src = weatherIcon[description];
-forecastTemp.textContent = list[indexVal + 2 + i].main.temp + " ℃";
-// forecastMin.textContent = list[indexVal + 2 + i].main.temp_min + " ℃";
-// forecastMax.textContent = list[indexVal + 2 + i].main.temp_max + " ℃";
-
-
-}
-
-const weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] const daysOfWeek = document.querySelectorAll(".day-text"); for(let i=1; i<=4; i++){ daysOfWeek[i-1].textContent = weekdayNames[i]; }
-
-// ---------------------------------------------------------------------------------------------------
-
-const { list } = data;
-let indexVal = nextDayIndex(data);
-
-const setForecast = (index, day, hour) => {
-  const timeSelector = `.forecast-day${day}-hour${hour}`;
-  const iconSelector = `.day${day}-hour${hour}-image-main`;
-  const tempSelector = `.forecast-day${day}-hour${hour}-temp`;
-
-  const forecastTime = document.querySelector(timeSelector);
-  const forecastIcon = document.querySelector(iconSelector);
-  const description = list[index].weather[0].description;
-  const forecastTemp = document.querySelector(tempSelector);
-
-  console.log("Forecast Date: " + list[index].dt_txt);
-  forecastTime.textContent = list[index].dt_txt.slice(11, 16);
-  forecastIcon.src = weatherIcon[description];
-  forecastTemp.textContent = list[index].main.temp + " ℃";
-};
-
-const setForecasts = (day) => {
-  const offset = (day - 1) * 8;
-
-  setForecast(indexVal + offset + 2, day, '1');
-  setForecast(indexVal + offset + 3, day, '2');
-  setForecast(indexVal + offset + 4, day, '3');
-  setForecast(indexVal + offset + 5, day, '4');
-  setForecast(indexVal + offset + 6, day, '5');
-};
-
-setForecasts(1);
-setForecasts(2);
-setForecasts(3);
-setForecasts(4);
-
-// -------------------------------------------------------------------------------
-
-const { list } = data;
-let indexVal = nextDayIndex(data);
-
-const setForecast = (index, timeSelector, iconSelector, tempSelector) => {
-  const forecastTime = document.querySelector(timeSelector);
-  const forecastIcon = document.querySelector(iconSelector);
-  const description = list[index].weather[0].description;
-  const forecastTemp = document.querySelector(tempSelector);
-
-  console.log("Forecast Date: " + list[index].dt_txt);
-  forecastTime.textContent = list[index].dt_txt.slice(11, 16);
-  forecastIcon.src = weatherIcon[description];
-  forecastTemp.textContent = list[index].main.temp + " ℃";
-};
-
-setForecast(indexVal + 2, ".forecast-day1-hour1", ".day1-hour1-image-main", ".forecast-day1-hour1-temp");
-setForecast(indexVal + 3, ".forecast-day1-hour2", ".day1-hour2-image-main", ".forecast-day1-hour2-temp");
-setForecast(indexVal + 4, ".forecast-day1-hour3", ".day1-hour3-image-main", ".forecast-day1-hour3-temp");
-setForecast(indexVal + 5, ".forecast-day1-hour4", ".day1-hour4-image-main", ".forecast-day1-hour4-temp");
-setForecast(indexVal + 6, ".forecast-day1-hour5", ".day1-hour5-image-main", ".forecast-day1-hour5-temp");
-
-setForecast(indexVal + 10, ".forecast-day2-hour1", ".day2-hour1-image-main", ".forecast-day2-hour1-temp");
-setForecast(indexVal + 11, ".forecast-day2-hour2", ".day2-hour2-image-main", ".forecast-day2-hour2-temp");
-setForecast(indexVal + 12, ".forecast-day2-hour3", ".day2-hour3-image-main", ".forecast-day2-hour3-temp");
-setForecast(indexVal + 13, ".forecast-day2-hour4", ".day2-hour4-image-main", ".forecast-day2-hour4-temp");
-setForecast(indexVal + 14, ".forecast-day2-hour5", ".day2-hour5-image-main", ".forecast-day2-hour5-temp");
-
-setForecast(indexVal + 18, ".forecast-day3-hour1", ".day3-hour1-image-main", ".forecast-day3-hour1-temp");
-setForecast(indexVal + 19, ".forecast-day3-hour2", ".day3-hour2-image-main", ".forecast-day3-hour2-temp");
-setForecast(indexVal + 20, ".forecast-day3-hour3", ".day3-hour3-image-main", ".forecast-day3-hour3-temp");
-setForecast(indexVal + 21, ".forecast-day3-hour4", ".day3-hour4-image-main", ".forecast-day3-hour4-temp");
-setForecast(indexVal + 22, ".forecast-day3-hour5", ".day3-hour5-image-main", ".forecast-day3-hour5-temp");
-
-setForecast(indexVal + 26, ".forecast-day4-hour1", ".day4-hour1-image-main", ".forecast-day4-hour1-temp");
-setForecast(indexVal + 27, ".forecast-day4-hour2", ".day4-hour2-image-main", ".forecast-day4-hour2-temp");
-setForecast(indexVal + 28, ".forecast-day4-hour3", ".day4-hour3-image-main", ".forecast-day4-hour3-temp");
-setForecast(indexVal + 29, ".forecast-day4-hour4", ".day4-hour4-image-main", ".forecast-day4-hour4-temp");
-setForecast(indexVal + 30, ".forecast-day4-hour5", ".day4-hour5-image-main", ".forecast-day4-hour5-temp");
+    forecastTime.textContent = list[indexVal + 2 + i].dt_txt.slice(11, 16);
+    forecastIcon.src = weatherIcon[description];
+    forecastTemp.textContent = list[indexVal + 2 + i].main.temp + " ℃";
+    // forecastMin.textContent = list[indexVal + 2 + i].main.temp_min + " ℃";
+    // forecastMax.textContent = list[indexVal + 2 + i].main.temp_max + " ℃";
 
 
-// ___________________________
+  }
+
+  const weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] const daysOfWeek = document.querySelectorAll(".day-text"); for (let i = 1; i <= 4; i++) { daysOfWeek[i - 1].textContent = weekdayNames[i]; }
+
+  // ---------------------------------------------------------------------------------------------------
+
+  const { list } = data;
+  let indexVal = nextDayIndex(data);
+
+  const setForecast = (index, day, hour) => {
+    const timeSelector = `.forecast-day${day}-hour${hour}`;
+    const iconSelector = `.day${day}-hour${hour}-image-main`;
+    const tempSelector = `.forecast-day${day}-hour${hour}-temp`;
+
+    const forecastTime = document.querySelector(timeSelector);
+    const forecastIcon = document.querySelector(iconSelector);
+    const description = list[index].weather[0].description;
+    const forecastTemp = document.querySelector(tempSelector);
+
+    console.log("Forecast Date: " + list[index].dt_txt);
+    forecastTime.textContent = list[index].dt_txt.slice(11, 16);
+    forecastIcon.src = weatherIcon[description];
+    forecastTemp.textContent = list[index].main.temp + " ℃";
+  };
+
+  const setForecasts = (day) => {
+    const offset = (day - 1) * 8;
+
+    setForecast(indexVal + offset + 2, day, '1');
+    setForecast(indexVal + offset + 3, day, '2');
+    setForecast(indexVal + offset + 4, day, '3');
+    setForecast(indexVal + offset + 5, day, '4');
+    setForecast(indexVal + offset + 6, day, '5');
+  };
+
+  setForecasts(1);
+  setForecasts(2);
+  setForecasts(3);
+  setForecasts(4);
+
+  // -------------------------------------------------------------------------------
+
+  const { list } = data;
+  let indexVal = nextDayIndex(data);
+
+  const setForecast = (index, timeSelector, iconSelector, tempSelector) => {
+    const forecastTime = document.querySelector(timeSelector);
+    const forecastIcon = document.querySelector(iconSelector);
+    const description = list[index].weather[0].description;
+    const forecastTemp = document.querySelector(tempSelector);
+
+    console.log("Forecast Date: " + list[index].dt_txt);
+    forecastTime.textContent = list[index].dt_txt.slice(11, 16);
+    forecastIcon.src = weatherIcon[description];
+    forecastTemp.textContent = list[index].main.temp + " ℃";
+  };
+
+  setForecast(indexVal + 2, ".forecast-day1-hour1", ".day1-hour1-image-main", ".forecast-day1-hour1-temp");
+  setForecast(indexVal + 3, ".forecast-day1-hour2", ".day1-hour2-image-main", ".forecast-day1-hour2-temp");
+  setForecast(indexVal + 4, ".forecast-day1-hour3", ".day1-hour3-image-main", ".forecast-day1-hour3-temp");
+  setForecast(indexVal + 5, ".forecast-day1-hour4", ".day1-hour4-image-main", ".forecast-day1-hour4-temp");
+  setForecast(indexVal + 6, ".forecast-day1-hour5", ".day1-hour5-image-main", ".forecast-day1-hour5-temp");
+
+  setForecast(indexVal + 10, ".forecast-day2-hour1", ".day2-hour1-image-main", ".forecast-day2-hour1-temp");
+  setForecast(indexVal + 11, ".forecast-day2-hour2", ".day2-hour2-image-main", ".forecast-day2-hour2-temp");
+  setForecast(indexVal + 12, ".forecast-day2-hour3", ".day2-hour3-image-main", ".forecast-day2-hour3-temp");
+  setForecast(indexVal + 13, ".forecast-day2-hour4", ".day2-hour4-image-main", ".forecast-day2-hour4-temp");
+  setForecast(indexVal + 14, ".forecast-day2-hour5", ".day2-hour5-image-main", ".forecast-day2-hour5-temp");
+
+  setForecast(indexVal + 18, ".forecast-day3-hour1", ".day3-hour1-image-main", ".forecast-day3-hour1-temp");
+  setForecast(indexVal + 19, ".forecast-day3-hour2", ".day3-hour2-image-main", ".forecast-day3-hour2-temp");
+  setForecast(indexVal + 20, ".forecast-day3-hour3", ".day3-hour3-image-main", ".forecast-day3-hour3-temp");
+  setForecast(indexVal + 21, ".forecast-day3-hour4", ".day3-hour4-image-main", ".forecast-day3-hour4-temp");
+  setForecast(indexVal + 22, ".forecast-day3-hour5", ".day3-hour5-image-main", ".forecast-day3-hour5-temp");
+
+  setForecast(indexVal + 26, ".forecast-day4-hour1", ".day4-hour1-image-main", ".forecast-day4-hour1-temp");
+  setForecast(indexVal + 27, ".forecast-day4-hour2", ".day4-hour2-image-main", ".forecast-day4-hour2-temp");
+  setForecast(indexVal + 28, ".forecast-day4-hour3", ".day4-hour3-image-main", ".forecast-day4-hour3-temp");
+  setForecast(indexVal + 29, ".forecast-day4-hour4", ".day4-hour4-image-main", ".forecast-day4-hour4-temp");
+  setForecast(indexVal + 30, ".forecast-day4-hour5", ".day4-hour5-image-main", ".forecast-day4-hour5-temp");
+
+
+  // ___________________________
 
 
 
-import mysql.connector
+  import mysql.connector
 
 # connect to MySQL server
-db = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword"
-)
+  db = mysql.connector.connect(
+    host = "localhost",
+    user = "yourusername",
+    password = "yourpassword"
+  )
 
 # create database if it doesn't exist
-cursor = db.cursor()
-cursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
-cursor.execute("USE mydatabase")
+  cursor = db.cursor()
+  cursor.execute("CREATE DATABASE IF NOT EXISTS mydatabase")
+  cursor.execute("USE mydatabase")
 
 # create table
-cursor.execute("CREATE TABLE IF NOT EXISTS users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))")
+  cursor.execute("CREATE TABLE IF NOT EXISTS users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))")
 
 # insert or update record
-username = "JohnDoe"
-email = "johndoe@example.com"
-password = "secretpassword"
-query = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE email=%s, password=%s"
-values = (username, email, password, email, password)
-cursor.execute(query, values)
-db.commit()
+  username = "JohnDoe"
+  email = "johndoe@example.com"
+  password = "secretpassword"
+  query = "INSERT INTO users (username, email, password) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE email=%s, password=%s"
+  values = (username, email, password, email, password)
+  cursor.execute(query, values)
+  db.commit()
 
 # close database connection
-db.close()
+  db.close()
+
+
+  // _______________________________________________
+
+
+  // Get the input elements
+  const usernameInput = document.querySelector('.username-input');
+  const passwordInput = document.querySelector('.password-input');
+
+  // Get the login button
+  const loginButton = document.querySelector('.login');
+
+  // Add event listener to the login button
+  loginButton.addEventListener('click', validateLogin);
+
+  // Function to validate the login
+  function validateLogin() {
+    // Clear previous error messages
+    clearErrorMessages();
+
+    // Validate username
+    const username = usernameInput.value.trim();
+    if (username.length < 4 || username.length > 10) {
+      showError(usernameInput, 'Username should be between 4 and 10 characters');
+      return;
+    }
+    if (!/^[a-zA-Z0-9]+$/.test(username)) {
+      showError(usernameInput, 'Username can only contain alphabets and numbers');
+      return;
+    }
+    if (/\s/.test(username)) {
+      showError(usernameInput, 'Username should not contain spaces');
+      return;
+    }
+
+    // Validate password
+    const password = passwordInput.value;
+    if (password.length < 8 || password.length > 16) {
+      showError(passwordInput, 'Password should be between 8 and 16 characters');
+      return;
+    }
+
+    // Submit the form if validation passes
+    alert('Login successful');
+  }
+
+  // Function to show error message
+  function showError(inputElement, errorMessage) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = errorMessage;
+
+    const parentElement = inputElement.parentElement;
+    parentElement.appendChild(errorDiv);
+  }
+
+  // Function to clear error messages
+  function clearErrorMessages() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach((errorMessage) => {
+      errorMessage.remove();
+    });
+  }

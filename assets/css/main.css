@@ -1,3 +1,8 @@
+:root {
+  --success-color: #23cc71;
+  --error-color: #e74c3c;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -7,8 +12,8 @@ body {
 }
 
 .login-container, .register-container {
-  width: 520px;
-  height: 400px;
+  width: 440px;
+  height: 500px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
   color: #87ceeb;
   border-radius: 20px;
@@ -21,29 +26,29 @@ body {
   justify-content: space-evenly;
 }
 
-#login-input, #register-input {
+.login-input, .register-input {
   background: #ffffff00;
-  color: #87ceeb;
+  color: #daa520aa;
   font-family: Anybody, serif;
   font-style: italic;
   font-size: 1em;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-bottom-style: solid;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: inset;
   border-bottom-color: #daa520;
-  border-left-style: hidden;
+  border-bottom-width: 3px;
   margin-left: 5px;
   width: 210px;
-  padding-left: 27px;
 }
 
-#login-input:focus, #register-input:focus {
+.login-input:focus, .register-input:focus {
   outline: none;
 }
 
-#login-input::placeholder, #register-input::placeholder {
+.login-input::placeholder, .register-input::placeholder {
   color: #daa520;
   opacity: 0.5;
   text-align: left;
@@ -58,9 +63,9 @@ body {
   justify-content: space-between;
 }
 
-#login-signup-buttons, #register-button {
+.button-control {
   background: #ffffff00;
-  color: #87ceeb;
+  color: #daa520;
   font-family: 'Acme', serif;
   width: 110px;
   border-radius: 1em;
@@ -71,19 +76,22 @@ body {
   transition: transform 0.2s;
 }
 
-#login-signup-buttons:hover, #register-button:hover {
-  background: linear-gradient(to bottom, #daa520, #daa52025);
+.button-control:hover {
+  background: linear-gradient(165deg, #a47a1e, #d3a84c, #ffec94, #e6be6f, #ffd87c, #b58f3e, #956d13);
+  color: #141414;
+  border-top: none;
+  border-bottom: 5px inset #141414;
 }
 
-#login-signup-buttons:active, #register-button:active {
+.button-control:active {
   transform: translateY(2px);
 }
 
-.username-container, .password-container, .email-container {
+.input-container {
   position: relative;
 }
 
-.username-container i, .password-container i, .email-container i {
+.input-container i {
   position: absolute;
   top: 50%;
   left: 0.8rem;
@@ -92,8 +100,21 @@ body {
   font-size: 16px;
 }
 
-.username-container input, .password-container input, .email-container input {
-  padding-left: 20px;
+.far.fa-eye {
+  position: relative;
+  margin-right: -20px;
+}
+
+.input-container input {
+  padding-left: 30px;
+}
+
+.input-container.success input {
+  border-bottom-color: var(--success-color);
+}
+
+.input-container.error input {
+  border-bottom-color: var(--error-color);
 }
 
 .brand-logo-container h1 {
@@ -147,60 +168,5 @@ body {
   border-right: 5px outset #daa520;
   display: flex;
   justify-content: center;
-}
-
-#Login-Button {
-  background: #ffffff00;
-  font-size: 32px;
-  color: #0897e6;
-  font-family: 'Acme', serif;
-  width: 110px;
-  border-radius: 1em;
-  border-top: 2px double #daa520;
-  border-right-style: none;
-  border-bottom: 5px inset #daa520;
-  border-left-style: none;
-  transition: transform 0.2s;
-}
-
-#Login-Button:hover {
-  background: linear-gradient(165deg, #a47a1e, #d3a84c, #ffec94, #e6be6f, #ffd87c, #b58f3e, #956d13);
-}
-
-#Login-Button:active {
-  transform: translateY(2px);
-}
-
-.error-message {
-  position: absolute;
-  background-color: #ff0000;
-  color: #ffffff;
-  font-size: 0.8em;
-  padding: 5px;
-  border-radius: 5px;
-  white-space: nowrap;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 2s, opacity 0.3s linear;
-}
-
-.error-message::after {
-  content: '';
-  position: absolute;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #ff0000 transparent;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.username-container {
-  position: relative;
-}
-
-.username-container:hover .error-message, .username-container:focus-within .error-message {
-  visibility: visible;
-  opacity: 1;
 }
 
