@@ -5,6 +5,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -79,8 +80,8 @@ body {
 .button-control:hover {
   background: linear-gradient(165deg, #a47a1e, #d3a84c, #ffec94, #e6be6f, #ffd87c, #b58f3e, #956d13);
   color: #141414;
-  border-top: none;
-  border-bottom: 5px inset #141414;
+  border-top: 2px double #0054d2;
+  border-bottom: 5px inset #0054d2;
 }
 
 .button-control:active {
@@ -115,6 +116,33 @@ body {
 
 .input-container.error input {
   border-bottom-color: var(--error-color);
+}
+
+.validation-container.success {
+  border-bottom: 5px inset var(--success-color);
+  border-right: 5px outset var(--success-color);
+}
+
+.validation-container.error {
+  border-bottom: 5px inset var(--error-color);
+  border-right: 5px outset var(--error-color);
+}
+
+.validation-container small {
+  color: var(--error-color);
+  visibility: hidden;
+}
+
+.validation-container {
+  visibility: hidden;
+}
+
+.validation-container.error small {
+  visibility: visible;
+}
+
+.validation-container.error {
+  visibility: visible;
 }
 
 .brand-logo-container h1 {
@@ -156,7 +184,7 @@ body {
   width: auto;
 }
 
-.weather-widget {
+.weather-widget, .validation-container {
   width: 100%;
   max-width: 470px;
   background: linear-gradient(165deg, #141414, #4d4d4d);
@@ -168,5 +196,11 @@ body {
   border-right: 5px outset #daa520;
   display: flex;
   justify-content: center;
+}
+
+.validation-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
