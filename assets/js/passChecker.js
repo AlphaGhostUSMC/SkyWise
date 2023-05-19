@@ -1,8 +1,3 @@
-const userNameInput = document.querySelector('.username-input');
-const emailInput = document.querySelector('.email-input');
-const passwordInput = document.querySelector('.password-input');
-const cnfPasswordInput = document.querySelector('.cnfpassword-input');
-const registerBtn = document.querySelector('.register');
 
 function togglePasswordVisibility(inputId, iconId) {
   const passwordInput = document.getElementById(inputId);
@@ -35,16 +30,6 @@ function togglePasswordVisibility(inputId, iconId) {
   });
 }
 
-
-function showError(input) {
-  const formControl = input.parentElement;
-  formControl.className = 'input-container error';
-}
-
-function showSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = 'input-container success';
-}
 
 function passwordMatchIndicator() {
   const passwordInput = document.getElementById("password");
