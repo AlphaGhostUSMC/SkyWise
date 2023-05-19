@@ -101,7 +101,7 @@ body {
   font-size: 16px;
 }
 
-.far.fa-eye {
+#eyeIcon, #cnfEyeIcon {
   position: relative;
   margin-right: -20px;
 }
@@ -116,6 +116,33 @@ body {
 
 .input-container.error input {
   border-bottom-color: var(--error-color);
+}
+
+.validation-container.success {
+  border-bottom: 5px inset var(--success-color);
+  border-right: 5px outset var(--success-color);
+}
+
+.validation-container.error {
+  border-bottom: 5px inset var(--error-color);
+  border-right: 5px outset var(--error-color);
+}
+
+.validation-container small {
+  color: var(--error-color);
+  visibility: hidden;
+}
+
+.validation-container {
+  visibility: hidden;
+}
+
+.validation-container.error small {
+  visibility: visible;
+}
+
+.validation-container.error {
+  visibility: visible;
 }
 
 .brand-logo-container h1 {
@@ -171,7 +198,7 @@ body {
   justify-content: center;
 }
 
-.validation-container {
+.validation-container.error {
   display: flex;
   flex-direction: column;
   text-align: left;

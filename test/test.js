@@ -615,3 +615,23 @@ document.addEventListener("DOMContentLoaded", () => {
       errorMessage.remove();
     });
   }
+
+  // -------------------------------
+
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var cnfPasswordInput = document.querySelector(".cnfpassword-input");
+  
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  
+    if (cnfPasswordInput.type === "password") {
+      cnfPasswordInput.type = "text";
+    } else {
+      cnfPasswordInput.type = "password";
+    }
+  }
+  
