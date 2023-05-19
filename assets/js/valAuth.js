@@ -12,11 +12,27 @@ function togglePasswordVisibility(inputId, iconId) {
     passwordInput.type = "text";
     eyeIcon.classList.remove("fa-eye");
     eyeIcon.classList.add("fa-eye-slash");
+    eyeIcon.style.color = "var(--error-color)";
+
+    setTimeout(() => {
+      passwordInput.type = "password";
+      eyeIcon.classList.remove("fa-eye-slash");
+      eyeIcon.classList.add("fa-eye");
+      eyeIcon.style.color = "var(--success-color)";
+    }, 2000);
+
   } else {
     passwordInput.type = "password";
     eyeIcon.classList.remove("fa-eye-slash");
     eyeIcon.classList.add("fa-eye");
+    eyeIcon.style.color = "var(--success-color)";
   }
+
+  passwordInput.addEventListener("input", () => {
+    if (passwordInput.value === "") {
+      eyeIcon.style.removeProperty("color");
+    }
+  });
 }
 
 
