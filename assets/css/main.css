@@ -124,8 +124,12 @@ body {
 }
 
 .validation-container.error {
+  visibility: visible;
   border-bottom: 5px inset var(--error-color);
   border-right: 5px outset var(--error-color);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .validation-container small {
@@ -141,14 +145,10 @@ body {
   visibility: visible;
 }
 
-.validation-container.error {
-  visibility: visible;
-}
-
 .brand-logo-container h1 {
   color: #87ceeb;
   font-weight: normal;
-  font-family: 'Aclonica';
+  font-family: 'Aclonica', sans-serif;
 }
 
 .brand-logo-container span {
@@ -168,7 +168,6 @@ body {
   display: flex;
   margin-top: -60px;
   margin-left: -10px;
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-content: space-evenly;
@@ -196,11 +195,5 @@ body {
   border-right: 5px outset #daa520;
   display: flex;
   justify-content: center;
-}
-
-.validation-container.error {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
 }
 
